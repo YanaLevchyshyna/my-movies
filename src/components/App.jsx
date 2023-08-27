@@ -1,6 +1,6 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { Home } from 'pages/Home';
+import Home from 'pages/Home';
 import { Movies } from 'pages/Movies';
 import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews';

@@ -1,11 +1,15 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
-import { Home } from 'pages/Home';
+import Home from 'pages/Home';
 
 export const NotFound = () => {
   return (
     <div>
       <nav>
-        <NavLink to="/">Home</NavLink>
+        <ul>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+        </ul>
       </nav>
 
       <Routes>
