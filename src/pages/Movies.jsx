@@ -1,17 +1,8 @@
-import { Link, Outlet } from 'react-router-dom';
-
 export const Movies = () => {
   return (
     <div>
       <h2>Movies</h2>
-      <ul>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">"Reviews"</Link>
-        </li>
-      </ul>
+
       <section>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, nesciunt
@@ -20,7 +11,6 @@ export const Movies = () => {
           inventore.
         </p>
       </section>
-      <Outlet />
     </div>
   );
 };

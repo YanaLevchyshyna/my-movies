@@ -7,7 +7,7 @@ const options = {
   },
 };
 
-async function fetchMovies() {
+async function fetchTrendingMovies() {
   try {
     const response = await fetch(
       'https://api.themoviedb.org/3/trending/movie/day?language=en-US',
@@ -28,8 +28,23 @@ async function fetchMovies() {
   }
 }
 
-const api = {
-  fetchMovies,
+async function fetchMovieId(movieId) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+      options
+    );
+
+    const data = await response.json();
+    console.log('data == data', data);
+    return data;
+  } catch (error) {
+    throw new Error(`${error.message}`);
+  }
+}
+
+const getApi = () => {
+  return { fetchTrendingMovies, fetchMovieId };
 };
 
-export default api;
+export default getApi;

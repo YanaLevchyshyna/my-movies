@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function TrendingMoviesList({ movies }) {
-  const baseUrl = 'https://image.tmdb.org/t/p/w300/';
+  const location = useLocation();
+  const baseUrl = 'https://image.tmdb.org/t/p/w200/';
   return (
     <section>
       <div>
@@ -9,7 +10,7 @@ export default function TrendingMoviesList({ movies }) {
           {movies.map(movie => (
             <li key={movie.id}>
               <div>
-                <Link to={`${movie.id}`}>
+                <Link to={`/movies/${movie.id}`} state={{ from: location }}>
                   <img
                     src={`${baseUrl}${movie.poster_path}`}
                     alt={movie.original_title}
