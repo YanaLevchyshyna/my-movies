@@ -1,23 +1,69 @@
-export const Cast = () => {
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import getApi from 'services/fetchApi';
+import Loader from 'components/Loader/Loader';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { DefaultImg } from './Cast.styled';
+
+const movieIdApi = getApi();
+
+export default function Cast() {
+  const [cast, setCast] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const { id } = useParams();
+
+  const baseUrl = 'https://image.tmdb.org/t/p/w200/';
+
+  useEffect(() => {
+    setLoading(true);
+
+    const fetchDataMovieActors = async () => {
+      try {
+        const { cast } = await movieIdApi.fetchMovieActors(id);
+        if (cast.length === 0) {
+          toast.error('The resource you requested could not be found.', {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          return;
+        }
+        setCast(cast);
+        console.log('CAST', cast);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDataMovieActors();
+  }, [id]);
+
   return (
-    <div>
-      <h2>Cast</h2>
-      <section>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, nesciunt
-          veniam. Excepturi itaque, voluptates fugiat perspiciatis quo saepe!
-          Iste eaque porro eveniet error dicta, modi ipsum hic quis minima
-          inventore.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-          quaerat illum excepturi odit doloremque, vitae quasi corporis commodi
-          nisi quae perspiciatis amet consectetur reprehenderit inventore
-          laborum facilis quia mollitia exercitationem eaque rerum dignissimos
-          maiores, quos iure blanditiis. Dolorem, nam? Aliquid sequi molestias
-          vel, tenetur maxime pariatur? Molestiae libero cum quidem.
-        </p>
-      </section>
-    </div>
+    <>
+      {loading && <Loader />}
+
+      {cast && (
+        <section>
+          <div>
+            <ul>
+              {cast.map(actor => (
+                <li key={actor.name}>
+                  {actor.profile_path ? (
+                    <img
+                      src={`${baseUrl}${actor.profile_path}`}
+                      alt={actor.name}
+                    />
+                  ) : (
+                    <DefaultImg />
+                  )}
+                  <p>{actor.name}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+    </>
   );
-};
+}

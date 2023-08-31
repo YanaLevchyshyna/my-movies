@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import getApi from 'services/fetchApi';
 import TrendingMoviesList from 'components/TrendingMoviesList/TrendingMoviesList';
 import Loader from 'components/Loader/Loader';
+import Error from 'components/Error/Error';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const moviesApi = getApi();
 
@@ -18,10 +21,12 @@ function Home() {
         const { results } = await moviesApi.fetchTrendingMovies();
 
         if (results.length === 0) {
-          throw new Error(`Sorry, something went wrong... Please try again.`);
+          toast.error('Sorry, something went wrong... Please try again!', {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          return;
         }
         setMovies(results);
-        console.log('-----> data.results', results);
       } catch (error) {
         setError(error);
       } finally {
@@ -31,17 +36,12 @@ function Home() {
     fetchData();
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
-
-  if (error) {
-    console.log('error.message-error.message', error.message);
-    return <p>{error.message}</p>;
-  }
-
   return (
     <main>
+      {loading && <Loader />}
+
+      {error && <Error />}
+
       <h1>Trending today</h1>
       <TrendingMoviesList movies={movies} />
     </main>

@@ -13,18 +13,17 @@ async function fetchTrendingMovies() {
       'https://api.themoviedb.org/3/trending/movie/day?language=en-US',
       options
     );
-    console.log('response', response);
+    // console.log('response fetch', response);
 
     if (!response.ok) {
-      throw new Error(
-        `Sorry, there are no movies matching your search query. Please try again.`
-      );
+      return Promise.reject(new Error(`Sorry, something went wrong...`));
     }
 
     const data = await response.json();
+    // console.log('data trending', data);
     return data;
   } catch (error) {
-    throw new Error(`${error.message}`);
+    console.error(error);
   }
 }
 
@@ -34,17 +33,55 @@ async function fetchMovieId(movieId) {
       `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
       options
     );
+    // console.log('response fetchID', response);
 
     const data = await response.json();
-    console.log('data == data', data);
+    console.log('data ID == ID', data);
     return data;
   } catch (error) {
-    throw new Error(`${error.message}`);
+    console.error('ERROR', error);
+  }
+}
+
+async function fetchMovieActors(movieId) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
+      options
+    );
+    console.log('response fetchActor', response);
+
+    const data = await response.json();
+    console.log('data ACTORS ACTORS', data);
+    return data;
+  } catch (error) {
+    console.log('ERROR', error);
+  }
+}
+
+async function fetchMovieReviews(movieId) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US`,
+      options
+    );
+    console.log('reviews', response);
+
+    const data = await response.json();
+    console.log('data reviews', data);
+    return data;
+  } catch (error) {
+    console.log('ERROR', error);
   }
 }
 
 const getApi = () => {
-  return { fetchTrendingMovies, fetchMovieId };
+  return {
+    fetchTrendingMovies,
+    fetchMovieId,
+    fetchMovieActors,
+    fetchMovieReviews,
+  };
 };
 
 export default getApi;

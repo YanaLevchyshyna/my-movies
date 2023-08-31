@@ -1,23 +1,60 @@
-export const Reviews = () => {
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import getApi from 'services/fetchApi';
+import Loader from 'components/Loader/Loader';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const movieIdApi = getApi();
+
+export default function Reviews() {
+  const [reviews, setReviews] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    setLoading(true);
+
+    const fetchDataMovieReviews = async () => {
+      try {
+        const { results } = await movieIdApi.fetchMovieReviews(id);
+
+        if (results.length === 0) {
+          toast.error('The resource you requested could not be found.', {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          return;
+        }
+        setReviews(results);
+        console.log('Reviews', results);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDataMovieReviews();
+  }, [id]);
+
   return (
-    <div>
-      <h2>Reviews</h2>
-      <section>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, nesciunt
-          veniam. Excepturi itaque, voluptates fugiat perspiciatis quo saepe!
-          Iste eaque porro eveniet error dicta, modi ipsum hic quis minima
-          inventore.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-          quaerat illum excepturi odit doloremque, vitae quasi corporis commodi
-          nisi quae perspiciatis amet consectetur reprehenderit inventore
-          laborum facilis quia mollitia exercitationem eaque rerum dignissimos
-          maiores, quos iure blanditiis. Dolorem, nam? Aliquid sequi molestias
-          vel, tenetur maxime pariatur? Molestiae libero cum quidem.
-        </p>
-      </section>
-    </div>
+    <>
+      {loading && <Loader />}
+
+      {reviews && (
+        <section>
+          <div>
+            <ul>
+              {reviews.map(review => (
+                <li key={review.id}>
+                  <p>{review.author}</p>
+                  <p>{review.content}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+    </>
   );
-};
+}

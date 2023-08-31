@@ -1,10 +1,11 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { ToastContainer } from 'react-toastify';
 import Home from 'pages/Home';
 import { Movies } from 'pages/Movies';
 import MovieDetails from 'pages/MovieDetails';
-import { Cast } from './Cast/Cast';
-import { Reviews } from './Reviews/Reviews';
+import Cast from './Cast/Cast';
+import Reviews from './Reviews/Reviews';
 import { NotFound } from './NotFound/NotFound';
 
 const StyledLink = styled(NavLink)`
@@ -36,6 +37,7 @@ export default function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <ToastContainer autoClose={3000} />
     </div>
   );
 }
