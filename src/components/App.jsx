@@ -1,8 +1,8 @@
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { ToastContainer } from 'react-toastify';
 import Home from 'pages/Home';
-import { Movies } from 'pages/Movies';
+import Movies from 'pages/Movies';
 import MovieDetails from 'pages/MovieDetails';
 import Cast from './Cast/Cast';
 import Reviews from './Reviews/Reviews';
@@ -35,7 +35,7 @@ export default function App() {
           <Route path="reviews" element={<Reviews />} />
         </Route>
 
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <ToastContainer autoClose={3000} />
     </div>

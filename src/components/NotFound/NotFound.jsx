@@ -4,13 +4,7 @@ import Home from 'pages/Home';
 export const NotFound = () => {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-        </ul>
-      </nav>
+      <p>The resource you requested could not be found.</p>
 
       <Routes>
         <Route path="/" element={<Home />} />

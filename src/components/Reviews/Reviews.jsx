@@ -4,6 +4,7 @@ import getApi from 'services/fetchApi';
 import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ReviewerImg } from './Reviews.styled';
 
 const movieIdApi = getApi();
 
@@ -47,6 +48,7 @@ export default function Reviews() {
             <ul>
               {reviews.map(review => (
                 <li key={review.id}>
+                  <ReviewerImg />
                   <p>{review.author}</p>
                   <p>{review.content}</p>
                 </li>

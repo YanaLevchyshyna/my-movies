@@ -1,5 +1,3 @@
-// IoPersonOutline;
-
 import styled from '@emotion/styled';
 import { IoPersonOutline } from 'react-icons/io5';
 
