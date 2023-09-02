@@ -5,7 +5,7 @@ import getApi from 'services/fetchApi';
 import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SearchBar from 'components/SearchBar/SearchBar';
+// import SearchBar from 'components/SearchBar/SearchBar';
 
 const searchApi = getApi();
 

@@ -1,3 +1,3 @@
-export default function SearchBar({ query, onChange }) {
-  return;
-}
+// export default function SearchBar({ query, onChange }) {
+//   return;
+// }
