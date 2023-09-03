@@ -1,27 +1,48 @@
 import { Link, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import {
+  Container,
+  MoviesList,
+  MovieItem,
+  PosterWrapp,
+  MovieTitle,
+} from './TrendingMoviesList.styled';
 
 export default function TrendingMoviesList({ movies }) {
   const location = useLocation();
   const baseUrl = 'https://image.tmdb.org/t/p/w200/';
   return (
     <section>
-      <div>
-        <ul>
+      <Container>
+        <MoviesList>
           {movies.map(movie => (
-            <li key={movie.id}>
+            <MovieItem key={movie.id}>
               <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-                <img
-                  src={`${baseUrl}${movie.poster_path}`}
-                  alt={movie.original_title}
-                />
+                <PosterWrapp>
+                  <img
+                    src={`${baseUrl}${movie.poster_path}`}
+                    alt={movie.original_title}
+                  />
+                </PosterWrapp>
               </Link>
-              <p>{movie.title}</p>
-              <p>{movie.overview}</p>
+              <MovieTitle>{movie.title}</MovieTitle>
               <p>{movie.vote_average}</p>
-            </li>
+            </MovieItem>
           ))}
-        </ul>
-      </div>
+        </MoviesList>
+      </Container>
     </section>
   );
 }
+
+TrendingMoviesList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      vote_average: PropTypes.number,
+      original_title: PropTypes.string,
+      poster_path: PropTypes.string,
+    }).isRequired
+  ),
+};

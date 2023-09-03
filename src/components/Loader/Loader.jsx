@@ -6,7 +6,7 @@ function Loader() {
   return (
     <LoaderBackdrop>
       <BeatLoader
-        color="#00008B"
+        color="#032541"
         size={20}
         cssOverride={{ position: 'absolute', top: '25%', left: '45%' }}
       />
