@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { FormEl, InputEl, Button, BsSearchSVG } from './SearchBar.styled';
+
 export default function SearchBar({ onSubmit }) {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -28,8 +30,8 @@ export default function SearchBar({ onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <FormEl onSubmit={handleSubmit}>
+      <InputEl
         type="text"
         name="searchQuery"
         autoComplete="off"
@@ -38,8 +40,10 @@ export default function SearchBar({ onSubmit }) {
         value={searchQuery}
         onChange={handleChange}
       />
-      <button type="submit">Search</button>
-    </form>
+      <Button type="submit">
+        <BsSearchSVG />
+      </Button>
+    </FormEl>
   );
 }
 
