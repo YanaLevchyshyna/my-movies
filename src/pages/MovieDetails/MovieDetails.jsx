@@ -46,8 +46,8 @@ function MovieDetails() {
     fetchDataMovieDetails();
   }, [id]);
 
-  if (!id) {
-    return <Error />;
+  if (!movie) {
+    return;
   }
 
   return (

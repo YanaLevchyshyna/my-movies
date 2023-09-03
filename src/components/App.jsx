@@ -1,43 +1,35 @@
-import { Routes, Route, NavLink } from 'react-router-dom';
-import styled from '@emotion/styled';
+import { Routes, Route } from 'react-router-dom';
+import { SharedLayout } from './SharedLayout/SharedLayout';
+import { lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
-import Home from 'pages/Home';
-import Movies from 'pages/Movies';
-import MovieDetails from 'pages/MovieDetails';
-import Cast from './Cast/Cast';
-import Reviews from './Reviews/Reviews';
-import { NotFound } from './NotFound/NotFound';
 
-const StyledLink = styled(NavLink)`
-  color: black;
-  text-decoration: none;
+// import Home from 'pages/Home';
+// import Movies from 'pages/Movies';
+// import MovieDetails from 'pages/MovieDetails';
+// import Cast from './Cast/Cast';
+// import Reviews from './Reviews/Reviews';
 
-  :active {
-    color: hotpink;
-    box-shadow: 0 2.8px 2.2px red, 0 6.7px 5.3px blue, 0 12.5px 10px green,
-      0 22.3px 17.9px purple, 0 41.8px 33.4px orange, 0 100px 80px teal;
-  }
-`;
+const Home = lazy(() => import('pages/Home/Home'));
+const Movies = lazy(() => import('pages/Movies/Movies'));
+const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export default function App() {
   return (
-    <div>
-      <nav>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/movies">Movies</StyledLink>
-      </nav>
-
+    <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:id" element={<MovieDetails />}>
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:id" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+          <Route path="*" element={<Home />} />
         </Route>
-
-        <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer autoClose={3000} />
-    </div>
+    </>
   );
 }
