@@ -13,6 +13,7 @@ export const Header = styled.header`
   width: 100%;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 50px;
   padding-top: 24px;
   padding-bottom: 24px;
   background-color: #032541;

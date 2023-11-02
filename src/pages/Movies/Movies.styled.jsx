@@ -1,3 +1,7 @@
 import styled from '@emotion/styled';
 
-// export const Header = styled.header``;
+export const Title = styled.h1`
+  text-align: center;
+  margin-bottom: 50px;
+  color: #032541;
+`;

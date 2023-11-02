@@ -21,7 +21,8 @@ a {
   /* display: block; */
 }
 
-p {
+p,
+h1 {
   margin: 0;
 }
 ul {

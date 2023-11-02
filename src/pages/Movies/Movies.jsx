@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchMoviesList from 'components/SearchMoviesList/SearchMoviesList';
+import { Title } from './Movies.styled';
 
 const searchApi = getApi();
 
@@ -65,7 +66,7 @@ export default function Movies() {
     <>
       <main>
         {loading && <Loader />}
-        <h1>Movies</h1>
+        <Title>Let's find your movie</Title>
         <SearchBar onSubmit={handleSubmit} />
         {movies && (
           <section>
