@@ -30,20 +30,22 @@ export default function SearchBar({ onSubmit }) {
   };
 
   return (
-    <FormEl onSubmit={handleSubmit}>
-      <InputEl
-        type="text"
-        name="searchQuery"
-        autoComplete="off"
-        autoFocus
-        placeholder="Search movies"
-        value={searchQuery}
-        onChange={handleChange}
-      />
-      <Button type="submit">
-        <BsSearchSVG />
-      </Button>
-    </FormEl>
+    <>
+      <FormEl onSubmit={handleSubmit}>
+        <InputEl
+          type="text"
+          name="searchQuery"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search movies"
+          value={searchQuery}
+          onChange={handleChange}
+        />
+        <Button type="submit">
+          <BsSearchSVG />
+        </Button>
+      </FormEl>
+    </>
   );
 }
 

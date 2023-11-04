@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
+  Section,
   Container,
   MoviesList,
   MovieItem,
@@ -12,7 +13,7 @@ export default function TrendingMoviesList({ movies }) {
   const location = useLocation();
   const baseUrl = 'https://image.tmdb.org/t/p/w200/';
   return (
-    <section>
+    <Section>
       <Container>
         <MoviesList>
           {movies.map(movie => (
@@ -31,7 +32,7 @@ export default function TrendingMoviesList({ movies }) {
           ))}
         </MoviesList>
       </Container>
-    </section>
+    </Section>
   );
 }
 

@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     button: '#f59fef',
     buttonHover: '#FFF',
+    textColor: '#ffffff',
     borderColor: '#1e3c72',
     primary: '#f6f6f6',
     secondary: '#fa05f2',
@@ -21,7 +22,7 @@ export const theme = {
     xs: '12px',
     s: '14px',
     m: '16px',
-    l: '32px',
+    l: '34px',
     xl: '64px',
   },
   fontWeights: {

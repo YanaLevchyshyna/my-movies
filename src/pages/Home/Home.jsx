@@ -5,6 +5,7 @@ import Loader from 'components/Loader/Loader';
 import Error from 'components/Error/Error';
 import { toast } from 'react-toastify';
 import { Title } from './Home.styled';
+import Footer from 'components/Footer/Footer';
 import 'react-toastify/dist/ReactToastify.css';
 
 const moviesApi = getApi();
@@ -38,14 +39,17 @@ function Home() {
   }, []);
 
   return (
-    <main>
-      {loading && <Loader />}
+    <>
+      <main>
+        {loading && <Loader />}
 
-      {error && <Error />}
+        {error && <Error />}
 
-      <Title>Trending today</Title>
-      <TrendingMoviesList movies={movies} />
-    </main>
+        <Title>Trending today</Title>
+        <TrendingMoviesList movies={movies} />
+      </main>
+      <Footer />
+    </>
   );
 }
 export default Home;

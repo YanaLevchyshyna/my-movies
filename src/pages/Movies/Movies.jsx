@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchMoviesList from 'components/SearchMoviesList/SearchMoviesList';
+import Footer from 'components/Footer/Footer';
 import { Title } from './Movies.styled';
 
 const searchApi = getApi();
@@ -74,6 +75,7 @@ export default function Movies() {
           </section>
         )}
       </main>
+      <Footer />
     </>
   );
 }

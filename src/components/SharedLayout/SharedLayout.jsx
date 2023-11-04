@@ -1,15 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import Loader from 'components/Loader/Loader';
-import { Container, Header, Link, Logo, Box } from './SharedLayout.styled';
+import { Logo } from 'components/Logo/Logo';
+import { Container, Header, Link } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   return (
     <Container>
       <Header>
-        <Logo to="/">
-          TMDB&nbsp;<Box></Box>
-        </Logo>
+        <Logo />
         <nav>
           <Link to="/">Home</Link>
           <Link to="/movies">Movies</Link>
