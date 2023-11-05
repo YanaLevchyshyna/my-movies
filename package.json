@@ -14,6 +14,7 @@
     "axios": "^1.4.0",
     "date-fns": "^2.30.0",
     "react": "^18.1.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.10.1",
     "react-recipes": "^1.5.0",

@@ -19,9 +19,12 @@ import {
   Runtime,
   VoteAverage,
   Tagline,
+  OverviewTitle,
 } from './MovieDetails.styled';
 
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
+import { timeConversion } from 'services/timeConversion';
+import CircularRating from 'components/CircularProgressbar/CircularProgressbar';
 
 const movieIdApi = getApi();
 
@@ -72,7 +75,7 @@ function MovieDetails() {
   const {
     poster_path,
     backdrop_path,
-    original_title,
+    title,
     release_date,
     vote_average,
     genres,
@@ -83,9 +86,17 @@ function MovieDetails() {
 
   //  Змінюємо формат release_date "2023-10-18" на "2023"
   const parsedReleaseDate = new Date(release_date); // Парсинг рядка у дату
-  const formattedReleaseDate = format(parsedReleaseDate, 'yyyy'); // Форматування року
+  const formattedReleaseYear = format(parsedReleaseDate, 'yyyy'); // Форматування року
+
+  // Спочатку розпарсіть рядок дати в об'єкт Date
+  const parsedDate = parseISO(release_date);
+
+  // Потім використовуйте функцію format для зміни формату
+  const formattedReleaseFullDate = format(parsedDate, 'dd/MM/yyyy');
 
   const largeImage = `${backdropImgUrl}${backdrop_path}`;
+
+  const formattedTime = timeConversion(runtime);
 
   return (
     <>
@@ -115,26 +126,30 @@ function MovieDetails() {
           <MovieDetailsSection>
             <MovieDetailsContainer>
               <MovieDetailsContainerImg>
-                <img src={`${baseUrl}${poster_path}`} alt={original_title} />
+                <img src={`${baseUrl}${poster_path}`} alt={title} />
               </MovieDetailsContainerImg>
               <MovieDetailsContainerDescription>
                 <MovieTitle>
-                  {original_title}&nbsp;&#40;{formattedReleaseDate}&#41;
+                  {title}&nbsp;&#40;{formattedReleaseYear}&#41;
                 </MovieTitle>
                 <DivWrapp>
-                  <ReleaseDate>{release_date}</ReleaseDate>
+                  <ReleaseDate>
+                    {formattedReleaseFullDate} &bull;&nbsp;
+                  </ReleaseDate>
                   {/* жанри фільму */}
                   {genres && (
                     <Genres>
                       {genres.map((genre, index) => (
-                        <Genre key={index}>{genre.name}</Genre>
+                        <Genre key={index}>{genre.name}&sbquo;</Genre>
                       ))}
                     </Genres>
                   )}
-                  <Runtime>{runtime}</Runtime>
+                  <Runtime>&nbsp;&bull; {formattedTime}</Runtime>
                 </DivWrapp>
                 <VoteAverage>{vote_average}</VoteAverage>
+                <CircularRating rating={vote_average} />
                 <Tagline>{tagline}</Tagline>
+                <OverviewTitle>Overview</OverviewTitle>
                 <MovieOverview>{overview}</MovieOverview>
               </MovieDetailsContainerDescription>
             </MovieDetailsContainer>

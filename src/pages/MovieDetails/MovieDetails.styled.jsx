@@ -34,46 +34,66 @@ export const MovieDetailsContainerDescription = styled.div`
 `;
 
 export const MovieTitle = styled.h2`
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-weight: 700;
-  font-size: ${props => props.theme.fontSizes.l};
+  font-size: ${props => props.theme.fontSizes.m};
   color: ${props => props.theme.colors.textColor};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.xl};
+  }
 `;
 
 export const DivWrapp = styled.div`
   display: flex;
-  gap: 10px;
+  margin-bottom: 8px;
 `;
 
 export const ReleaseDate = styled.p`
   color: ${props => props.theme.colors.textColor};
+
+  @media screen and (min-width: 768px) {
+    font-weight: ${props => props.theme.fontWeights.medium};
+  }
 `;
 export const Runtime = styled.p`
   color: ${props => props.theme.colors.textColor};
+
+  @media screen and (min-width: 768px) {
+    font-weight: ${props => props.theme.fontWeights.medium};
+  }
 `;
+
 export const VoteAverage = styled.p`
+  margin-bottom: 8px;
   color: ${props => props.theme.colors.textColor};
 `;
 
 export const Genres = styled.ul`
   display: flex;
   gap: 10px;
-  margin-bottom: 5px;
   font-weight: 400;
 `;
 
 export const Genre = styled.li`
   text-shadow: 0 0.4px 0.4px #fff;
-  font-size: ${props => props.theme.fontSizes.xs};
-  font-weight: bold;
+  font-size: ${props => props.theme.fontSizes.s};
+
   color: ${props => props.theme.colors.textColor};
 
   @media screen and (min-width: 768px) {
-    font-size: ${props => props.theme.fontSizes.s};
+    font-size: ${props => props.theme.fontSizes.m};
   }
 `;
 
 export const Tagline = styled.p`
+  margin-bottom: 8px;
+  font-style: italic;
+  color: ${props => props.theme.colors.textColor};
+`;
+
+export const OverviewTitle = styled.h3`
+  margin-bottom: 5px;
   color: ${props => props.theme.colors.textColor};
 `;
 

@@ -11,6 +11,7 @@ export const theme = {
     label: '#bbbdbf',
     text: '#1a1919',
   },
+
   space: [0, 2, 4, 5, 8, 16, 32, 64, 128, 256],
 
   fonts: {
@@ -22,11 +23,13 @@ export const theme = {
     xs: '12px',
     s: '14px',
     m: '16px',
-    l: '34px',
-    xl: '64px',
+    l: '24px',
+    xl: '36px',
+    xxl: '64px',
   },
   fontWeights: {
     normal: 400,
+    medium: 500,
     bold: 700,
   },
   lineHeights: {
