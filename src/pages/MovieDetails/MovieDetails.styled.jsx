@@ -16,15 +16,27 @@ export const BackLink = styled(NavLink)`
   }
 `;
 
+export const CircularRatingWrap = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 55px;
+  height: 55px;
+`;
+
 export const MovieDetailsSection = styled.section`
   padding: 35px 40px;
 `;
 
 export const MovieDetailsContainer = styled.div`
+  position: relative;
   display: flex;
 `;
 
-export const MovieDetailsContainerImg = styled.div``;
+export const MovieDetailsContainerImg = styled.div`
+  position: relative;
+`;
 
 export const MovieDetailsContainerDescription = styled.div`
   display: flex;

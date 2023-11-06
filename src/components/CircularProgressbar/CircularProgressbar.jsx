@@ -12,25 +12,28 @@ export default function CircularRating({ rating }) {
   const formattedCircularRating = formatRating(rating);
 
   return (
-    <div style={{ width: 60, height: 60 }}>
-      <CircularProgressbar
-        value={formattedCircularRating}
-        maxValue={100}
-        text={`${formattedCircularRating}%`}
-        styles={buildStyles({
-          pathColor:
-            rating < 5 ? '#c7251a' : rating < 7 ? '#b57a04' : '#286b3a',
-          height: '100%',
-          width: '100%',
-          textSize: '32px',
-          fontWeight: '700',
-          pathTransitionDuration: 0.5,
-          textColor: '#ffffff',
-          trailColor: '#d6d6d6',
-          backgroundColor: '#fff',
-        })}
-      />
-    </div>
+    <CircularProgressbar
+      value={formattedCircularRating}
+      maxValue={100}
+      text={`${formattedCircularRating}%`}
+      background
+      backgroundPadding={6}
+      styles={buildStyles({
+        pathColor:
+          formattedCircularRating < 50
+            ? '#c7251a'
+            : formattedCircularRating < 70
+            ? '#fa9f16'
+            : '#04bf2c',
+        height: '100%',
+        width: '100%',
+        textSize: '30px',
+        pathTransitionDuration: 0.5,
+        textColor: '#ffffff',
+        trailColor: '#ffffff',
+        backgroundColor: '#032541',
+      })}
+    />
   );
 }
 

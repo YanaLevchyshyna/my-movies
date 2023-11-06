@@ -9,6 +9,7 @@ import {
   MovieDetailsSection,
   MovieDetailsContainer,
   MovieDetailsContainerImg,
+  CircularRatingWrap,
   MovieDetailsContainerDescription,
   MovieTitle,
   DivWrapp,
@@ -17,7 +18,6 @@ import {
   Genre,
   ReleaseDate,
   Runtime,
-  VoteAverage,
   Tagline,
   OverviewTitle,
 } from './MovieDetails.styled';
@@ -25,6 +25,7 @@ import {
 import { format, parseISO } from 'date-fns';
 import { timeConversion } from 'services/timeConversion';
 import CircularRating from 'components/CircularProgressbar/CircularProgressbar';
+import Footer from 'components/Footer/Footer';
 
 const movieIdApi = getApi();
 
@@ -146,8 +147,9 @@ function MovieDetails() {
                   )}
                   <Runtime>&nbsp;&bull; {formattedTime}</Runtime>
                 </DivWrapp>
-                <VoteAverage>{vote_average}</VoteAverage>
-                <CircularRating rating={vote_average} />
+                <CircularRatingWrap>
+                  <CircularRating rating={vote_average} />
+                </CircularRatingWrap>
                 <Tagline>{tagline}</Tagline>
                 <OverviewTitle>Overview</OverviewTitle>
                 <MovieOverview>{overview}</MovieOverview>
@@ -167,6 +169,7 @@ function MovieDetails() {
         </ul>
       </section>
       <Outlet />
+      <Footer />
     </>
   );
 }
