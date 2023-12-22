@@ -41,7 +41,8 @@ function MovieDetails() {
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
-  const baseUrl = 'https://image.tmdb.org/t/p/w300/';
+  const baseUrl = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2';
+  const baseUrlBiggerImg = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2';
   const backdropImgUrl =
     'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/';
 
@@ -127,7 +128,11 @@ function MovieDetails() {
           <MovieDetailsSection>
             <MovieDetailsContainer>
               <MovieDetailsContainerImg>
-                <img src={`${baseUrl}${poster_path}`} alt={title} />
+                <img
+                  src={`${baseUrl}${poster_path}`}
+                  alt={title}
+                  srcSet={`${baseUrl}${poster_path} 1x, ${baseUrlBiggerImg}${poster_path} 2x`}
+                />
               </MovieDetailsContainerImg>
               <MovieDetailsContainerDescription>
                 <MovieTitle>
