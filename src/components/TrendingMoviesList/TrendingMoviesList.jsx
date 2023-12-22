@@ -11,7 +11,8 @@ import {
 
 export default function TrendingMoviesList({ movies }) {
   const location = useLocation();
-  const baseUrl = 'https://image.tmdb.org/t/p/w200/';
+  const baseUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
+  const baseUrlBiggerImg = 'https://image.tmdb.org/t/p/w440_and_h660_face';
   return (
     <Section>
       <Container>
@@ -22,12 +23,12 @@ export default function TrendingMoviesList({ movies }) {
                 <PosterWrapp>
                   <img
                     src={`${baseUrl}${movie.poster_path}`}
+                    srcSet={`${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`}
                     alt={movie.original_title}
                   />
                 </PosterWrapp>
               </Link>
               <MovieTitle>{movie.title}</MovieTitle>
-              <p>{movie.vote_average}</p>
             </MovieItem>
           ))}
         </MoviesList>

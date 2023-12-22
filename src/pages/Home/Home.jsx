@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 import { Title } from './Home.styled';
 import Footer from 'components/Footer/Footer';
 import 'react-toastify/dist/ReactToastify.css';
-
 const moviesApi = getApi();
 
 function Home() {

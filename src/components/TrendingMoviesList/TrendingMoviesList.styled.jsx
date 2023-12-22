@@ -29,7 +29,7 @@ export const MovieItem = styled.li`
   padding: ${({ theme }) => theme.space[3]}px;
 
   max-width: 100%;
-  width: 260px;
+  width: 220px;
   height: 100%;
 
   border: none;
@@ -52,7 +52,7 @@ export const MovieItem = styled.li`
   img {
     display: block;
     min-height: 100%;
-    height: 420px;
+    height: 330px;
     width: 100%;
 
     border-top-left-radius: 8px;
@@ -80,4 +80,8 @@ export const MovieTitle = styled.h2`
   width: 100%;
   word-wrap: normal;
   overflow-wrap: break-word;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
