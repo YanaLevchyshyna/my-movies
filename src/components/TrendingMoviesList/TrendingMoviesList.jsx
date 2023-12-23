@@ -1,5 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+import CircularRating from 'components/CircularProgressbar/CircularProgressbar';
 import {
   Section,
   Container,
@@ -7,6 +9,7 @@ import {
   MovieItem,
   PosterWrapp,
   MovieTitle,
+  CircularRatingWrap,
 } from './TrendingMoviesList.styled';
 
 export default function TrendingMoviesList({ movies }) {
@@ -29,6 +32,9 @@ export default function TrendingMoviesList({ movies }) {
                 </PosterWrapp>
               </Link>
               <MovieTitle>{movie.title}</MovieTitle>
+              <CircularRatingWrap>
+                <CircularRating rating={movie.vote_average} />
+              </CircularRatingWrap>
             </MovieItem>
           ))}
         </MoviesList>

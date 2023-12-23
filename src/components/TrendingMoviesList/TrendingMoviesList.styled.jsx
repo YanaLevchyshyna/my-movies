@@ -25,8 +25,8 @@ export const MovieItem = styled.li`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: ${({ theme }) => theme.space[3]}px;
+  gap: 16px;
+  padding: 8px 8px 17px 8px;
 
   max-width: 100%;
   width: 220px;
@@ -84,4 +84,12 @@ export const MovieTitle = styled.h2`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const CircularRatingWrap = styled.div`
+  position: absolute;
+  bottom: 40px;
+  left: 12px;
+  width: 40px;
+  height: 40px;
 `;

@@ -16,11 +16,10 @@ export const BackLink = styled(NavLink)`
   }
 `;
 
-export const CircularRatingWrap = styled.div`
+export const CircularRatingWrapper = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
-
+  top: 5px;
+  left: 5px;
   width: 55px;
   height: 55px;
 `;
@@ -34,9 +33,7 @@ export const MovieDetailsContainer = styled.div`
   display: flex;
 `;
 
-export const MovieDetailsContainerImg = styled.div`
-  position: relative;
-`;
+export const MovieDetailsContainerImg = styled.div``;
 
 export const MovieDetailsContainerDescription = styled.div`
   display: flex;

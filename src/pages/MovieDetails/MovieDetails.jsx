@@ -9,7 +9,7 @@ import {
   MovieDetailsSection,
   MovieDetailsContainer,
   MovieDetailsContainerImg,
-  CircularRatingWrap,
+  CircularRatingWrapper,
   MovieDetailsContainerDescription,
   MovieTitle,
   DivWrapp,
@@ -152,9 +152,9 @@ function MovieDetails() {
                   )}
                   <Runtime>&nbsp;&bull; {formattedTime}</Runtime>
                 </DivWrapp>
-                <CircularRatingWrap>
+                <CircularRatingWrapper>
                   <CircularRating rating={vote_average} />
-                </CircularRatingWrap>
+                </CircularRatingWrapper>
                 <Tagline>{tagline}</Tagline>
                 <OverviewTitle>Overview</OverviewTitle>
                 <MovieOverview>{overview}</MovieOverview>
