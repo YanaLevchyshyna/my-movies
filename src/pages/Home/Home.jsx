@@ -1,15 +1,20 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import getApi from 'services/fetchApi';
 import TrendingMoviesList from 'components/TrendingMoviesList/TrendingMoviesList';
 import Loader from 'components/Loader/Loader';
 import Error from 'components/Error/Error';
-import { toast } from 'react-toastify';
 import { Title } from './Home.styled';
 import Footer from 'components/Footer/Footer';
-import 'react-toastify/dist/ReactToastify.css';
+
 const moviesApi = getApi();
 
 function Home() {
+  const { t } = useTranslation();
+
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -44,7 +49,7 @@ function Home() {
 
         {error && <Error />}
 
-        <Title>Trending today</Title>
+        <Title>{t('trendingToday')}</Title>
         <TrendingMoviesList movies={movies} />
       </main>
       <Footer />

@@ -1,10 +1,10 @@
-// import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// import { useDebounce } from 'react-recipes';
-import getApi from 'services/fetchApi';
-import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
+
+import getApi from 'services/fetchApi';
+import Loader from 'components/Loader/Loader';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchMoviesList from 'components/SearchMoviesList/SearchMoviesList';
 import Footer from 'components/Footer/Footer';
@@ -13,6 +13,8 @@ import { Title } from './Movies.styled';
 const searchApi = getApi();
 
 export default function Movies() {
+  const { t } = useTranslation();
+
   const [movies, setMovies] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(false);
@@ -67,7 +69,7 @@ export default function Movies() {
     <>
       <main>
         {loading && <Loader />}
-        <Title>Let's find your movie</Title>
+        <Title>{t('searchMovie')}</Title>
         <SearchBar onSubmit={handleSubmit} />
         {movies && (
           <section>
