@@ -19,7 +19,7 @@
     "react": "^18.1.0",
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.1.0",
-    "react-i18next": "^14.0.0",
+    "react-i18next": "^9.0.10",
     "react-icons": "^4.10.1",
     "react-recipes": "^1.5.0",
     "react-router-dom": "^6.15.0",
