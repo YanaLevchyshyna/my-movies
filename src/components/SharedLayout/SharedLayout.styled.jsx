@@ -53,6 +53,7 @@ export const Link = styled(NavLink)`
 
 export const ButtonsWrapper = styled.div`
   display: flex;
+  gap: 5px;
 `;
 
 export const ButtonEn = styled.button`

@@ -1,5 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import i18next from 'i18next';
+
+import 'i18n';
+import { LOCALS } from 'i18n/lng-constant.js';
 import Loader from 'components/Loader/Loader';
 import { Logo } from 'components/Logo/Logo';
 import {
@@ -20,9 +24,20 @@ export const SharedLayout = () => {
           <Link to="/">Home</Link>
           <Link to="/movies">Movies</Link>
         </nav>
+        <h3>{i18next.language}</h3>
         <ButtonsWrapper>
-          <ButtonEn>EN</ButtonEn>
-          <ButtonUk>UK</ButtonUk>
+          <ButtonEn
+            disabled={i18next.language === 'en'}
+            onClick={() => i18next.changeLanguage(LOCALS.EN)}
+          >
+            EN
+          </ButtonEn>
+          <ButtonUk
+            disabled={i18next.language === 'uk'}
+            onClick={() => i18next.changeLanguage(LOCALS.UK)}
+          >
+            UK
+          </ButtonUk>
         </ButtonsWrapper>
       </Header>
 
