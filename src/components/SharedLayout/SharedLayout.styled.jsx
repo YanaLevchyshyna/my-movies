@@ -50,3 +50,52 @@ export const Link = styled(NavLink)`
     height: 0.9em;
   }
 `;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+`;
+
+export const ButtonEn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 26px;
+  padding: 3px 5px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  cursor: pointer;
+
+  color: #fff;
+  background-color: transparent;
+  font-weight: 600;
+
+  transition: linear 0.1s;
+
+  &:hover {
+    color: #032541;
+    background-color: #ffffff;
+  }
+`;
+export const ButtonUk = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 26px;
+  padding: 3px 5px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  cursor: pointer;
+
+  color: #fff;
+  background-color: transparent;
+  font-weight: 600;
+
+  transition: linear 0.1s;
+
+  &:hover {
+    color: #032541;
+    background-color: #ffffff;
+  }
+`;
