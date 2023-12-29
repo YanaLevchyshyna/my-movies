@@ -27,13 +27,13 @@ export const SharedLayout = () => {
         <h3>{i18next.language}</h3>
         <ButtonsWrapper>
           <ButtonEn
-            disabled={i18next.language === 'en'}
+            disabled={i18next.language === LOCALS.EN}
             onClick={() => i18next.changeLanguage(LOCALS.EN)}
           >
             EN
           </ButtonEn>
           <ButtonUk
-            disabled={i18next.language === 'uk'}
+            disabled={i18next.language === LOCALS.UK}
             onClick={() => i18next.changeLanguage(LOCALS.UK)}
           >
             UK

@@ -3,16 +3,16 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 import { LOCALS } from 'i18n/lng-constant.js';
-import translationEN from 'locales/EN/translation.json';
-import translationUK from 'locales/UA/translation.json';
+import { en } from './locales/en.js';
+import { uk } from './locales/uk.js';
 
 // the translations
 const resources = {
   [LOCALS.EN]: {
-    translation: translationEN,
+    translation: en,
   },
   [LOCALS.UK]: {
-    translation: translationUK,
+    translation: uk,
   },
 };
 
@@ -21,7 +21,7 @@ i18n
   .use(LanguageDetector)
   .init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: LOCALS.UK,
   });
 
 export default i18n;
