@@ -4,7 +4,7 @@ import getApi from 'services/fetchApi';
 import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { DefaultImg } from './Cast.styled';
+import { DefaultImg, CastList } from './Cast.styled';
 
 const movieIdApi = getApi();
 
@@ -46,7 +46,7 @@ export default function Cast() {
       {cast && (
         <section>
           <div>
-            <ul>
+            <CastList>
               {cast.map(actor => (
                 <li key={actor.name}>
                   {actor.profile_path ? (
@@ -60,7 +60,7 @@ export default function Cast() {
                   <p>{actor.name}</p>
                 </li>
               ))}
-            </ul>
+            </CastList>
           </div>
         </section>
       )}

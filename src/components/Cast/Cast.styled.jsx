@@ -6,3 +6,12 @@ export const DefaultImg = styled(IoPersonOutline)`
   height: 300px;
   stroke: grey;
 `;
+
+export const CastList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 0px auto;
+`;
