@@ -17,11 +17,17 @@ const resources = {
 };
 
 i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
   .use(LanguageDetector)
+  // pass the i18n instance to react-i18next.
+  .use(initReactI18next)
+  // init i18next
+  // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     resources,
-    fallbackLng: LOCALS.UK,
+    fallbackLng: LOCALS.EN,
+    interpolation: {
+      escapeValue: false, // not needed for react as it escapes by default
+    },
   });
 
 export default i18n;

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 import 'i18n';
 import { LOCALS } from 'i18n/lng-constant.js';
@@ -16,25 +16,26 @@ import {
 } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
+  const { t, i18n } = useTranslation();
   return (
     <Container>
       <Header>
         <Logo />
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
+          <Link to="/">{t('home')}</Link>
+          <Link to="/movies">{t('movies')}</Link>
         </nav>
-        <h3>{i18next.language}</h3>
+        <h3>{i18n.language}</h3>
         <ButtonsWrapper>
           <ButtonEn
-            disabled={i18next.language === LOCALS.EN}
-            onClick={() => i18next.changeLanguage(LOCALS.EN)}
+            disabled={i18n.language === LOCALS.EN}
+            onClick={() => i18n.changeLanguage(LOCALS.EN)}
           >
             EN
           </ButtonEn>
           <ButtonUk
-            disabled={i18next.language === LOCALS.UK}
-            onClick={() => i18next.changeLanguage(LOCALS.UK)}
+            disabled={i18n.language === LOCALS.UK}
+            onClick={() => i18n.changeLanguage(LOCALS.UK)}
           >
             UK
           </ButtonUk>
