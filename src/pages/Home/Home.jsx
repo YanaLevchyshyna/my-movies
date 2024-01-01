@@ -27,7 +27,7 @@ function Home() {
         const { results } = await moviesApi.fetchTrendingMovies();
 
         if (results.length === 0) {
-          toast.error('Sorry, something went wrong... Please try again!', {
+          toast.error(t('Sorry, something went wrong... Please try again!'), {
             position: toast.POSITION.TOP_CENTER,
           });
           return;
@@ -40,7 +40,7 @@ function Home() {
       }
     };
     fetchData();
-  }, []);
+  }, [t]);
 
   return (
     <>

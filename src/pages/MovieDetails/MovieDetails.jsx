@@ -160,7 +160,7 @@ function MovieDetails() {
                   <CircularRating rating={vote_average} />
                 </CircularRatingWrapper>
                 <Tagline>{tagline}</Tagline>
-                <OverviewTitle>Overview</OverviewTitle>
+                <OverviewTitle>{t('movieDetails.overview')}</OverviewTitle>
                 <MovieOverview>{overview}</MovieOverview>
               </MovieDetailsContainerDescription>
             </MovieDetailsContainer>
@@ -170,10 +170,12 @@ function MovieDetails() {
       <section>
         <ul>
           <li>
-            <Link to={`/movies/${id}/cast`}>Actors</Link>
+            <Link to={`/movies/${id}/cast`}>{t('movieDetails.author')}</Link>
           </li>
           <li>
-            <Link to={`/movies/${id}/reviews`}>Reviews</Link>
+            <Link to={`/movies/${id}/reviews`}>
+              {t('movieDetails.reviews')}
+            </Link>
           </li>
         </ul>
       </section>

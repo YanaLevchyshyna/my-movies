@@ -1,13 +1,13 @@
 export const uk = {
   language: 'Мова',
-  home: 'Домашня сторінка',
+  home: 'Головна',
   movies: 'Фільми',
   trendingToday: 'Сьогодні у тренді',
   searchMovie: 'Знайди свій улюблений фільм',
   movieDetails: {
-    backToMovies: 'На головну',
+    backToMovies: 'Назад',
     overview: 'Опис',
     reviews: 'Відгуки',
-    author: 'Акторський склад',
+    author: 'У головних ролях',
   },
 };

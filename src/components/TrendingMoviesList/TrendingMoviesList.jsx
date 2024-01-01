@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import CircularRating from 'components/CircularProgressbar/CircularProgressbar';
 import {
@@ -13,6 +14,7 @@ import {
 } from './TrendingMoviesList.styled';
 
 export default function TrendingMoviesList({ movies }) {
+  const { t } = useTranslation();
   const location = useLocation();
   const baseUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
   const baseUrlBiggerImg = 'https://image.tmdb.org/t/p/w440_and_h660_face';
@@ -27,11 +29,11 @@ export default function TrendingMoviesList({ movies }) {
                   <img
                     src={`${baseUrl}${movie.poster_path}`}
                     srcSet={`${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`}
-                    alt={movie.original_title}
+                    alt={t(movie.original_title)}
                   />
                 </PosterWrapp>
               </Link>
-              <MovieTitle>{movie.title}</MovieTitle>
+              <MovieTitle>{t(movie.title)}</MovieTitle>
               <CircularRatingWrap>
                 <CircularRating rating={movie.vote_average} />
               </CircularRatingWrap>
