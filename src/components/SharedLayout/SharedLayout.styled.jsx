@@ -37,17 +37,18 @@ export const Link = styled(NavLink)`
   &:after {
     content: '';
     position: absolute;
-    left: 0;
+    right: 100%; /* Змінено з left: 0; */
     bottom: 0.06em;
     height: 0.2em;
-    width: 100%;
-    background: linear-gradient(110deg, #e1f549, #29d0be, #6cb8ea, #ff5959);
+    background: linear-gradient(110deg, #29d0be, #6cb8ea);
     z-index: -1;
-    transition: height 0.25s cubic-bezier(0.6, 0, 0.4, 1);
+    transition: width 0.25s cubic-bezier(0.6, 0, 0.4, 1); /* Змінено з height на width */
   }
 
   &:hover::after {
-    height: 0.9em;
+    width: 100%; /* Змінено з height на width */
+    left: 0;
+    right: 0; /* Додано */
   }
 `;
 

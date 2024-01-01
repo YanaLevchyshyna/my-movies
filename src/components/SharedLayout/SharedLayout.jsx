@@ -25,7 +25,6 @@ export const SharedLayout = () => {
           <Link to="/">{t('home')}</Link>
           <Link to="/movies">{t('movies')}</Link>
         </nav>
-        <h3>{i18n.language}</h3>
         <ButtonsWrapper>
           <ButtonEn
             disabled={i18n.language === LOCALS.EN}
