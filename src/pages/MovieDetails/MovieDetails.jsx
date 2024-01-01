@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { Link, Outlet } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import getApi from 'services/fetchApi';
 import Loader from 'components/Loader/Loader';
 import Error from 'components/Error/Error';
@@ -30,6 +32,8 @@ import Footer from 'components/Footer/Footer';
 const movieIdApi = getApi();
 
 function MovieDetails() {
+  const { t } = useTranslation();
+
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -107,7 +111,7 @@ function MovieDetails() {
       {error && <Error />}
 
       <BackLink to={backLinkLocationRef.current}>
-        &larr; Back to movies
+        &larr; {t('movieDetails.backToMovies')}
       </BackLink>
 
       {movie && (
