@@ -1,14 +1,17 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import getApi from 'services/fetchApi';
-import Loader from 'components/Loader/Loader';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import getApi from 'services/fetchApi';
+import Loader from 'components/Loader/Loader';
 import { ReviewerImg } from './Reviews.styled';
 
 const movieIdApi = getApi();
 
 export default function Reviews() {
+  const { t } = useTranslation();
   const [reviews, setReviews] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -28,7 +31,7 @@ export default function Reviews() {
           return;
         }
         setReviews(results);
-        console.log('Reviews', results);
+        // console.log('Reviews', results);
       } catch (error) {
         console.error(error);
       } finally {
@@ -49,8 +52,8 @@ export default function Reviews() {
               {reviews.map(review => (
                 <li key={review.id}>
                   <ReviewerImg />
-                  <p>{review.author}</p>
-                  <p>{review.content}</p>
+                  <p>{t(review.author)}</p>
+                  <p>{t(review.content)}</p>
                 </li>
               ))}
             </ul>
