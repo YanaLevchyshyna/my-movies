@@ -34,6 +34,7 @@ i18n
         'path',
         'subdomain',
       ],
+      caches: ['cookie'],
     },
     resources,
     fallbackLng: LOCALS.EN,
