@@ -44,7 +44,7 @@ export default function Reviews() {
       }
     };
     fetchDataMovieReviews();
-  }, [t, id, currentLanguage]);
+  }, [id, currentLanguage]);
 
   return (
     <>
