@@ -36,10 +36,11 @@ i18n
         'subdomain',
       ],
       caches: ['localStorage', 'cookie'],
+      htmlTag: document.documentElement,
     },
     resources,
     fallbackLng: LOCALS.EN,
-    debug: true,
+    debug: false,
     load: 'languageOnly',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default

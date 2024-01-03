@@ -11,7 +11,9 @@ import { ReviewerImg } from './Reviews.styled';
 const movieIdApi = getApi();
 
 export default function Reviews() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language = i18n.language;
+
   const [reviews, setReviews] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +24,7 @@ export default function Reviews() {
 
     const fetchDataMovieReviews = async () => {
       try {
-        const { results } = await movieIdApi.fetchMovieReviews(id);
+        const { results } = await movieIdApi.fetchMovieReviews(id, language);
 
         if (results.length === 0) {
           toast.error('The resource you requested could not be found.', {
@@ -39,7 +41,7 @@ export default function Reviews() {
       }
     };
     fetchDataMovieReviews();
-  }, [id]);
+  }, [id, language]);
 
   return (
     <>

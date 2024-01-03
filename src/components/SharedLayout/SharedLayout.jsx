@@ -17,6 +17,7 @@ import {
 
 export const SharedLayout = () => {
   const { t, i18n } = useTranslation();
+
   return (
     <Container>
       <Header>

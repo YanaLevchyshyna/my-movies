@@ -1,14 +1,20 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import getApi from 'services/fetchApi';
-import Loader from 'components/Loader/Loader';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import getApi from 'services/fetchApi';
+import Loader from 'components/Loader/Loader';
 import { DefaultImg, CastList } from './Cast.styled';
 
 const movieIdApi = getApi();
 
 export default function Cast() {
+  const { t, i18n } = useTranslation();
+  const language = i18n.language;
+  // console.log('currentLng', language);
+
   const [cast, setCast] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -21,7 +27,7 @@ export default function Cast() {
 
     const fetchDataMovieActors = async () => {
       try {
-        const { cast } = await movieIdApi.fetchMovieActors(id);
+        const { cast } = await movieIdApi.fetchMovieActors(id, language);
         if (cast.length === 0) {
           toast.error('The resource you requested could not be found.', {
             position: toast.POSITION.TOP_CENTER,
@@ -29,7 +35,7 @@ export default function Cast() {
           return;
         }
         setCast(cast);
-        console.log('CAST', cast);
+        // console.log('CAST', cast);
       } catch (error) {
         console.error(error);
       } finally {
@@ -37,7 +43,7 @@ export default function Cast() {
       }
     };
     fetchDataMovieActors();
-  }, [id]);
+  }, [id, language]);
 
   return (
     <>
@@ -57,7 +63,7 @@ export default function Cast() {
                   ) : (
                     <DefaultImg />
                   )}
-                  <p>{actor.name}</p>
+                  <p>{t(actor.name)}</p>
                 </li>
               ))}
             </CastList>

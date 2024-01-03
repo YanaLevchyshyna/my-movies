@@ -13,7 +13,8 @@ import Footer from 'components/Footer/Footer';
 const moviesApi = getApi();
 
 function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language = i18n.language;
 
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -24,7 +25,7 @@ function Home() {
 
     const fetchData = async () => {
       try {
-        const { results } = await moviesApi.fetchTrendingMovies();
+        const { results } = await moviesApi.fetchTrendingMovies(language);
 
         if (results.length === 0) {
           toast.error(t('Sorry, something went wrong... Please try again!'), {
@@ -40,7 +41,7 @@ function Home() {
       }
     };
     fetchData();
-  }, [t]);
+  }, [language, t]);
 
   return (
     <>

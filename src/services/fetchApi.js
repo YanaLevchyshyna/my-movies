@@ -7,10 +7,10 @@ const options = {
   },
 };
 
-async function fetchTrendingMovies() {
+async function fetchTrendingMovies(lng) {
   try {
     const response = await fetch(
-      'https://api.themoviedb.org/3/trending/movie/day?language=en-US',
+      `https://api.themoviedb.org/3/trending/movie/day?language=${lng}`,
       options
     );
     // console.log('response fetch', response);
@@ -27,58 +27,58 @@ async function fetchTrendingMovies() {
   }
 }
 
-async function fetchMovieId(movieId) {
+async function fetchMovieId(movieId, lng) {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+      `https://api.themoviedb.org/3/movie/${movieId}?language=${lng}`,
       options
     );
     // console.log('response fetchID', response);
 
     const data = await response.json();
-    console.log('data ID == ID', data);
+    // console.log('data ID == ID', data);
     return data;
   } catch (error) {
     console.error('ERROR', error);
   }
 }
 
-async function fetchMovieActors(movieId) {
+async function fetchMovieActors(movieId, lng) {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
+      `https://api.themoviedb.org/3/movie/${movieId}/credits?language=${lng}`,
       options
     );
-    console.log('response fetchActor', response);
+    // console.log('response fetchActor', response);
 
     const data = await response.json();
-    console.log('data ACTORS ACTORS', data);
+    // console.log('data ACTORS ACTORS', data);
     return data;
   } catch (error) {
     console.log('ERROR', error);
   }
 }
 
-async function fetchMovieReviews(movieId) {
+async function fetchMovieReviews(movieId, lng) {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US`,
+      `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=${lng}`,
       options
     );
     console.log('reviews', response);
 
     const data = await response.json();
-    console.log('data reviews', data);
+    // console.log('data reviews', data);
     return data;
   } catch (error) {
     console.log('ERROR', error);
   }
 }
 
-async function fetchSearchMovie(query) {
+async function fetchSearchMovie(query, lng) {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+      `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=${lng}&page=1`,
       options
     );
     // console.log('SEARCH QUERY', response);
@@ -88,7 +88,7 @@ async function fetchSearchMovie(query) {
     }
 
     const data = await response.json();
-    console.log('SEARCH QUERY', data);
+    // console.log('SEARCH QUERY', data);
     return data;
   } catch (error) {
     console.error('ERROR', error);
