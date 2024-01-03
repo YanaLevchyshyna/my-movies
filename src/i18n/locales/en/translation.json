@@ -8,6 +8,7 @@
     "backToMovies": "Back to movies",
     "overview": "Overview",
     "reviews": "Reviews",
-    "author": "Author"
+    "author": "Author",
+    "noReviews": "There are no reviews."
   }
 }

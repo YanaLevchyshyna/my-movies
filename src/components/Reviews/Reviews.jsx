@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import getApi from 'services/fetchApi';
@@ -11,7 +11,7 @@ import { ReviewerImg } from './Reviews.styled';
 const movieIdApi = getApi();
 
 export default function Reviews() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
 
   const [reviews, setReviews] = useState(null);
@@ -29,12 +29,12 @@ export default function Reviews() {
           currentLanguage
         );
 
-        if (results.length === 0) {
-          toast.info('There are no reviews.', {
-            position: toast.POSITION.TOP_CENTER,
-          });
-          return;
-        }
+        // if (results.length === 0) {
+        //   toast.info(t('movieDetails.noReviews'), {
+        //     position: toast.POSITION.TOP_CENTER,
+        //   });
+        //   return;
+        // }
         setReviews(results);
         // console.log('Reviews', results);
       } catch (error) {
@@ -44,7 +44,7 @@ export default function Reviews() {
       }
     };
     fetchDataMovieReviews();
-  }, [id, currentLanguage]);
+  }, [t, id, currentLanguage]);
 
   return (
     <>
@@ -65,7 +65,7 @@ export default function Reviews() {
           </div>
         </section>
       ) : (
-        <p>There are no reviews</p>
+        <p>{t('movieDetails.noReviews')}</p>
       )}
     </>
   );
