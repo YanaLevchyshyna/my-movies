@@ -32,7 +32,8 @@ import Footer from 'components/Footer/Footer';
 const movieIdApi = getApi();
 
 function MovieDetails() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLng = i18n.language;
 
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -56,7 +57,7 @@ function MovieDetails() {
 
     const fetchDataMovieDetails = async () => {
       try {
-        await movieIdApi.fetchMovieId(id).then(response => {
+        await movieIdApi.fetchMovieId(id, currentLng).then(response => {
           // console.log('response ==>', response);
 
           if (response.success === false) {
@@ -73,7 +74,7 @@ function MovieDetails() {
       }
     };
     fetchDataMovieDetails();
-  }, [id]);
+  }, [currentLng, id]);
 
   if (!movie) {
     return;
