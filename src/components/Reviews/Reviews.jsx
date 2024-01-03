@@ -11,7 +11,7 @@ import { ReviewerImg } from './Reviews.styled';
 const movieIdApi = getApi();
 
 export default function Reviews() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const currentLanguage = i18n.language;
 
   const [reviews, setReviews] = useState(null);
@@ -57,8 +57,8 @@ export default function Reviews() {
               {reviews.map(review => (
                 <li key={review.id}>
                   <ReviewerImg />
-                  <p>{t(review.author)}</p>
-                  <p>{t(review.content)}</p>
+                  <p>{review.author}</p>
+                  <p>{review.content}</p>
                 </li>
               ))}
             </ul>

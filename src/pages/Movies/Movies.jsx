@@ -13,7 +13,8 @@ import { Title } from './Movies.styled';
 const searchApi = getApi();
 
 export default function Movies() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLng = i18n.language;
 
   const [movies, setMovies] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -22,12 +23,6 @@ export default function Movies() {
   const handleSubmit = searchQuery => {
     setSearchQuery(searchQuery);
   };
-
-  // const [searchParams, setSearchParams] = useSearchParams({ query: '' });
-
-  // const query = searchParams.get('query');
-  // const debounceQuery = useDebounce(query, 250); //затримуємо виконання функції,
-  // тобто поки користувач не припинить вводоити текст протягом певного періоду
 
   useEffect(() => {
     if (searchQuery === '') {
@@ -38,7 +33,10 @@ export default function Movies() {
 
     const fetchDataSearchMovie = async () => {
       try {
-        const { results } = await searchApi.fetchSearchMovie(searchQuery);
+        const { results } = await searchApi.fetchSearchMovie(
+          searchQuery,
+          currentLng
+        );
         if (!results) {
           toast.error('The movie could not be found.', {
             position: toast.POSITION.TOP_CENTER,
@@ -46,7 +44,7 @@ export default function Movies() {
           return;
         }
         setMovies(results);
-        console.log('setMovieName SEARCH ==>', results);
+        // console.log('setMovieName SEARCH ==>', results);
       } catch (error) {
         console.error(error);
         toast.error('404 Error !!!', {
@@ -59,11 +57,10 @@ export default function Movies() {
 
     fetchDataSearchMovie();
 
-    // setMovies([]);
     setLoading(false);
-  }, [searchQuery]);
+  }, [currentLng, searchQuery]);
 
-  console.log('movies', movies);
+  // console.log('movies', movies);
 
   return (
     <>

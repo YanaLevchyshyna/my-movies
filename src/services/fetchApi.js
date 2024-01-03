@@ -65,7 +65,7 @@ async function fetchMovieReviews(movieId, lng) {
       `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=${lng}`,
       options
     );
-    console.log('reviews', response);
+    // console.log('reviews', response);
 
     const data = await response.json();
     // console.log('data reviews', data);
