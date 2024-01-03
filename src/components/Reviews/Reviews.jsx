@@ -30,7 +30,7 @@ export default function Reviews() {
         );
 
         if (results.length === 0) {
-          toast.error('The resource you requested could not be found.', {
+          toast.info('There are no reviews.', {
             position: toast.POSITION.TOP_CENTER,
           });
           return;
@@ -50,7 +50,7 @@ export default function Reviews() {
     <>
       {loading && <Loader />}
 
-      {reviews && (
+      {reviews && reviews.length > 0 ? (
         <section>
           <div>
             <ul>
@@ -64,6 +64,8 @@ export default function Reviews() {
             </ul>
           </div>
         </section>
+      ) : (
+        <p>There are no reviews</p>
       )}
     </>
   );
