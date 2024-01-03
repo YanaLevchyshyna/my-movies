@@ -4,8 +4,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 
 import { LOCALS } from 'i18n/lng-constant.js';
-import { en } from './locales/en.js';
-import { uk } from './locales/uk.js';
+import en from './locales/en/translation.json';
+import uk from './locales/uk/translation.json';
 
 // the translations
 const resources = {
@@ -22,6 +22,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    supportedLngs: ['en', 'uk'],
     detection: {
       // order and from where user language should be detected
       order: [
@@ -34,7 +35,7 @@ i18n
         'path',
         'subdomain',
       ],
-      caches: ['cookie'],
+      caches: ['localStorage', 'cookie'],
     },
     resources,
     fallbackLng: LOCALS.EN,
@@ -44,7 +45,7 @@ i18n
       escapeValue: false, // not needed for react as it escapes by default
     },
     backend: {
-      loadPath: '../i18n/locales',
+      loadPath: './locales/{{lng}}/translation.json',
     },
   });
 
