@@ -6,3 +6,16 @@ export const ReviewerImg = styled(IoPersonCircleOutline)`
   height: 20px;
   stroke: grey;
 `;
+
+export const NoReviews = styled.p`
+  text-align: center;
+  padding: 34px 10px;
+  color: #ffffff;
+  background-image: linear-gradient(
+    to right,
+    rgb(32, 32, 32) calc(50vw - 510px),
+    rgba(32, 32, 32, 0.84) 50%,
+    rgba(32, 32, 32, 0.84) 100%
+  );
+  font-size: 20px;
+`;

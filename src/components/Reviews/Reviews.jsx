@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import getApi from 'services/fetchApi';
 import Loader from 'components/Loader/Loader';
-import { ReviewerImg } from './Reviews.styled';
+import { ReviewerImg, NoReviews } from './Reviews.styled';
 
 const movieIdApi = getApi();
 
@@ -65,7 +65,7 @@ export default function Reviews() {
           </div>
         </section>
       ) : (
-        <p>{t('movieDetails.noReviews')}</p>
+        <NoReviews>{t('movieDetails.noReviews')}</NoReviews>
       )}
     </>
   );
