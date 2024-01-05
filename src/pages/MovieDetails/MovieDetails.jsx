@@ -22,6 +22,7 @@ import {
   Runtime,
   Tagline,
   OverviewTitle,
+  LinksList,
 } from './MovieDetails.styled';
 
 import { format, parseISO } from 'date-fns';
@@ -169,7 +170,7 @@ function MovieDetails() {
         </div>
       )}
       <section>
-        <ul>
+        <LinksList>
           <li>
             <Link to={`/movies/${id}/cast`}>{t('movieDetails.author')}</Link>
           </li>
@@ -178,7 +179,7 @@ function MovieDetails() {
               {t('movieDetails.reviews')}
             </Link>
           </li>
-        </ul>
+        </LinksList>
       </section>
       <Outlet />
       <Footer />

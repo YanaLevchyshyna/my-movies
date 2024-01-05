@@ -109,3 +109,9 @@ export const OverviewTitle = styled.h3`
 export const MovieOverview = styled.p`
   color: ${props => props.theme.colors.textColor};
 `;
+export const LinksList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 20px 0;
+`;
