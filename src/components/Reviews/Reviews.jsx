@@ -8,6 +8,8 @@ import getApi from 'services/fetchApi';
 import Loader from 'components/Loader/Loader';
 import {
   ReviewerImg,
+  ReviewsList,
+  ReviewItem,
   ReviewAuthor,
   ReviewContent,
   NoReviews,
@@ -58,15 +60,15 @@ export default function Reviews() {
       {reviews && reviews.length > 0 ? (
         <section>
           <div>
-            <ul>
+            <ReviewsList>
               {reviews.map(review => (
-                <li key={review.id}>
+                <ReviewItem key={review.id}>
                   <ReviewerImg />
                   <ReviewAuthor>{review.author}</ReviewAuthor>
                   <ReviewContent>{review.content}</ReviewContent>
-                </li>
+                </ReviewItem>
               ))}
-            </ul>
+            </ReviewsList>
           </div>
         </section>
       ) : (
