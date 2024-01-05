@@ -10,6 +10,7 @@ import {
   ReviewerImg,
   ReviewsList,
   ReviewItem,
+  ReviewImgAuthorWrapper,
   ReviewAuthor,
   ReviewContent,
   NoReviews,
@@ -63,8 +64,10 @@ export default function Reviews() {
             <ReviewsList>
               {reviews.map(review => (
                 <ReviewItem key={review.id}>
-                  <ReviewerImg />
-                  <ReviewAuthor>{review.author}</ReviewAuthor>
+                  <ReviewImgAuthorWrapper>
+                    <ReviewerImg />
+                    <ReviewAuthor>{review.author}</ReviewAuthor>
+                  </ReviewImgAuthorWrapper>
                   <ReviewContent>{review.content}</ReviewContent>
                 </ReviewItem>
               ))}
