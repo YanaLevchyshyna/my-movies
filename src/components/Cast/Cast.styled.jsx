@@ -15,3 +15,7 @@ export const CastList = styled.ul`
   gap: 20px;
   margin: 0px auto;
 `;
+
+export const ActorName = styled.p`
+  font-weight: 700;
+`;
