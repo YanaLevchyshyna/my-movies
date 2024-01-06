@@ -64,6 +64,7 @@ export default function Cast() {
                     <DefaultImg />
                   )}
                   <p>{t(actor.name)}</p>
+                  <p>{actor.character}</p>
                 </li>
               ))}
             </CastList>
