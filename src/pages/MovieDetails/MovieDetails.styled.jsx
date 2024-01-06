@@ -43,7 +43,7 @@ export const MovieDetailsContainerDescription = styled.div`
 `;
 
 export const MovieTitle = styled.h2`
-  margin-bottom: 8px;
+  margin-bottom: 32px;
   font-weight: 700;
   font-size: ${props => props.theme.fontSizes.m};
   color: ${props => props.theme.colors.textColor};
@@ -55,7 +55,7 @@ export const MovieTitle = styled.h2`
 
 export const DivWrapp = styled.div`
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 `;
 
 export const ReleaseDate = styled.p`
@@ -96,7 +96,7 @@ export const Genre = styled.li`
 `;
 
 export const Tagline = styled.p`
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   font-style: italic;
   color: ${props => props.theme.colors.textColor};
 `;
