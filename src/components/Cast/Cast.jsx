@@ -6,7 +6,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import getApi from 'services/fetchApi';
 import Loader from 'components/Loader/Loader';
-import { DefaultImg, CastList, ActorName, ActorCharacter } from './Cast.styled';
+import {
+  DefaultImg,
+  CastList,
+  ActorName,
+  ActorCharacter,
+  Span,
+} from './Cast.styled';
 
 const movieIdApi = getApi();
 
@@ -69,7 +75,7 @@ export default function Cast() {
                     <ActorName>{t(actor.name)}</ActorName>
                     <ActorCharacter>
                       {t('movieDetails.character')}:&nbsp;
-                      <span>{actor.character}</span>
+                      <Span>{actor.character}</Span>
                     </ActorCharacter>
                   </div>
                 </li>

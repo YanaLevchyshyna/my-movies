@@ -16,10 +16,22 @@ export const CastList = styled.ul`
   margin: 0px auto;
 `;
 
+export const CastItem = styled.li`
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 100%;
+  width: 250px;
+  height: 100%;
+`;
+
 export const ActorName = styled.p`
   font-weight: 700;
 `;
 
 export const ActorCharacter = styled.p`
   font-size: 14px;
+`;
+
+export const Span = styled.span`
+  box-sizing: border-box;
 `;
