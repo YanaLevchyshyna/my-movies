@@ -19,3 +19,7 @@ export const CastList = styled.ul`
 export const ActorName = styled.p`
   font-weight: 700;
 `;
+
+export const ActorCharacter = styled.p`
+  font-size: 14px;
+`;
