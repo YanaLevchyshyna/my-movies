@@ -10,6 +10,7 @@ import {
   DefaultImg,
   CastList,
   CastItem,
+  ActorWrapper,
   ActorName,
   ActorCharacter,
   Span,
@@ -72,13 +73,13 @@ export default function Cast() {
                       <DefaultImg />
                     )}
                   </div>
-                  <div>
+                  <ActorWrapper>
                     <ActorName>{t(actor.name)}</ActorName>
                     <ActorCharacter>
                       {t('movieDetails.character')}:&nbsp;
                       <Span>{actor.character}</Span>
                     </ActorCharacter>
-                  </div>
+                  </ActorWrapper>
                 </CastItem>
               ))}
             </CastList>

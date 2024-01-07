@@ -20,8 +20,13 @@ export const CastItem = styled.li`
   display: flex;
   flex-flow: column wrap;
   max-width: 100%;
-  width: 250px;
+  width: 200px;
   height: 100%;
+`;
+
+export const ActorWrapper = styled.div`
+  text-align: center;
+  padding: 8px;
 `;
 
 export const ActorName = styled.p`
@@ -33,5 +38,5 @@ export const ActorCharacter = styled.p`
 `;
 
 export const Span = styled.span`
-  box-sizing: border-box;
+  max-width: 200px;
 `;
