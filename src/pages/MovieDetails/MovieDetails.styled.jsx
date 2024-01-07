@@ -2,14 +2,11 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const BackLink = styled(NavLink)`
-  display: block;
   text-decoration: none;
   margin-bottom: 10px;
   font-weight: 500;
   font-size: 18px;
-  position: relative;
   color: #424552;
-  z-index: 1;
 
   &:hover {
     color: inherit;
@@ -114,4 +111,26 @@ export const LinksList = styled.ul`
   flex-direction: column;
   gap: 8px;
   margin: 20px 0;
+`;
+
+export const AuthorsLink = styled(NavLink)`
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  color: #424552;
+
+  &:hover {
+    color: inherit;
+  }
+`;
+
+export const ReviewsLink = styled(NavLink)`
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  color: #424552;
+
+  &:hover {
+    color: inherit;
+  }
 `;

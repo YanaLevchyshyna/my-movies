@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import getApi from 'services/fetchApi';
@@ -23,6 +23,8 @@ import {
   Tagline,
   OverviewTitle,
   LinksList,
+  AuthorsLink,
+  ReviewsLink,
 } from './MovieDetails.styled';
 
 import { format, parseISO } from 'date-fns';
@@ -172,12 +174,14 @@ function MovieDetails() {
       <section>
         <LinksList>
           <li>
-            <Link to={`/movies/${id}/cast`}>{t('movieDetails.author')}</Link>
+            <AuthorsLink to={`/movies/${id}/cast`}>
+              {t('movieDetails.author')}
+            </AuthorsLink>
           </li>
           <li>
-            <Link to={`/movies/${id}/reviews`}>
+            <ReviewsLink to={`/movies/${id}/reviews`}>
               {t('movieDetails.reviews')}
-            </Link>
+            </ReviewsLink>
           </li>
         </LinksList>
       </section>
