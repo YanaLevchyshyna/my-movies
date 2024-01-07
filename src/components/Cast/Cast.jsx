@@ -9,6 +9,7 @@ import Loader from 'components/Loader/Loader';
 import {
   DefaultImg,
   CastList,
+  CastItem,
   ActorName,
   ActorCharacter,
   Span,
@@ -60,7 +61,7 @@ export default function Cast() {
           <div>
             <CastList>
               {cast.map(actor => (
-                <li key={actor.name}>
+                <CastItem key={actor.name}>
                   <div>
                     {actor.profile_path ? (
                       <img
@@ -78,7 +79,7 @@ export default function Cast() {
                       <Span>{actor.character}</Span>
                     </ActorCharacter>
                   </div>
-                </li>
+                </CastItem>
               ))}
             </CastList>
           </div>
