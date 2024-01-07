@@ -55,19 +55,23 @@ export default function Cast() {
             <CastList>
               {cast.map(actor => (
                 <li key={actor.name}>
-                  {actor.profile_path ? (
-                    <img
-                      src={`${baseUrl}${actor.profile_path}`}
-                      alt={actor.name}
-                    />
-                  ) : (
-                    <DefaultImg />
-                  )}
-                  <ActorName>{t(actor.name)}</ActorName>
-                  <p>
-                    {t('movieDetails.character')}:&nbsp;
-                    <span>{actor.character}</span>
-                  </p>
+                  <div>
+                    {actor.profile_path ? (
+                      <img
+                        src={`${baseUrl}${actor.profile_path}`}
+                        alt={actor.name}
+                      />
+                    ) : (
+                      <DefaultImg />
+                    )}
+                  </div>
+                  <div>
+                    <ActorName>{t(actor.name)}</ActorName>
+                    <p>
+                      {t('movieDetails.character')}:&nbsp;
+                      <span>{actor.character}</span>
+                    </p>
+                  </div>
                 </li>
               ))}
             </CastList>
