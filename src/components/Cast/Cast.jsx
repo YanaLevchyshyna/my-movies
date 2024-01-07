@@ -65,7 +65,8 @@ export default function Cast() {
                   )}
                   <ActorName>{t(actor.name)}</ActorName>
                   <p>
-                    {t('movieDetails.character')}: {actor.character}
+                    {t('movieDetails.character')}:&nbsp;
+                    <span>{actor.character}</span>
                   </p>
                 </li>
               ))}
