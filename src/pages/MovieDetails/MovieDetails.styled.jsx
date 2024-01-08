@@ -105,6 +105,7 @@ export const OverviewTitle = styled.h3`
 
 export const MovieOverview = styled.p`
   color: ${props => props.theme.colors.textColor};
+  font-size: 16px;
 `;
 export const LinksList = styled.ul`
   display: flex;
