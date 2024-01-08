@@ -25,10 +25,13 @@ export const BackLink = styled(NavLink)`
 export const CircularRatingWrapper = styled.div`
   position: absolute;
   top: 5px;
-  left: 5px;
+  left: 50px;
   width: 35px;
   height: 35px;
+
   @media screen and (min-width: 768px) {
+    top: 5px;
+    left: 5px;
     width: 40px;
     height: 40px;
   }
@@ -43,16 +46,31 @@ export const MovieDetailsSection = styled.section`
 `;
 
 export const MovieDetailsContainer = styled.div`
-  position: relative;
   display: flex;
+  position: relative;
+
+  @media screen and (min-width: 375px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and (min-width: 768px) {
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  @media screen and (min-width: 1400px) {
+  }
 `;
 
 export const MovieDetailsImg = styled.img`
   @media screen and (min-width: 375px) {
     width: 200px;
   }
+
   @media screen and (min-width: 768px) {
   }
+
   @media screen and (min-width: 1400px) {
     width: 300px;
   }
@@ -75,20 +93,28 @@ export const MovieDetailsContainerDescription = styled.div`
 `;
 
 export const MovieTitle = styled.h2`
-  margin-bottom: 32px;
-  font-size: ${props => props.theme.fontWeights.medium};
-  font-size: ${props => props.theme.fontWeights.bold};
+  margin-bottom: 24px;
+  font-weight: ${props => props.theme.fontWeights.medium};
   font-size: ${props => props.theme.fontSizes.m};
   color: ${props => props.theme.colors.textColor};
 
   @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
     font-size: ${props => props.theme.fontSizes.xl};
+    font-size: ${props => props.theme.fontWeights.bold};
   }
 `;
 
 export const DivWrapp = styled.div`
   display: flex;
-  margin-bottom: 16px;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 0;
+  }
 `;
 
 export const ReleaseDate = styled.p`
@@ -145,7 +171,16 @@ export const Genre = styled.li`
 export const Tagline = styled.p`
   margin-bottom: 16px;
   font-style: italic;
+  font-size: ${props => props.theme.fontSizes.xs};
   color: ${props => props.theme.colors.textColor};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.m};
+  }
 `;
 
 export const OverviewTitle = styled.h3`
