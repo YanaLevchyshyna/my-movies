@@ -28,8 +28,8 @@ export const Link = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
   margin-left: 10px;
-  font-weight: 600;
-  font-size: 22px;
+  font-weight: ${props => props.theme.fontWeights.medium};
+  font-size: ${props => props.theme.fontSizes.m};
   position: relative;
   color: inherit;
   z-index: 1;
@@ -50,6 +50,15 @@ export const Link = styled(NavLink)`
     left: 0;
     right: 0; /* Додано */
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: 22px;
+  }
 `;
 
 export const ButtonsWrapper = styled.div`
@@ -61,8 +70,8 @@ export const ButtonEn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 26px;
+  width: 22px;
+  height: 20px;
   padding: 3px 5px;
   border: 1px solid #fff;
   border-radius: 3px;
@@ -78,13 +87,23 @@ export const ButtonEn = styled.button`
     color: #032541;
     background-color: #ffffff;
   }
+
+  @media screen and (min-width: 768px) {
+    width: 26px;
+    height: 24px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    width: 28px;
+    height: 26px;
+  }
 `;
 export const ButtonUk = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 26px;
+  width: 22px;
+  height: 20px;
   padding: 3px 5px;
   border: 1px solid #fff;
   border-radius: 3px;
@@ -99,5 +118,15 @@ export const ButtonUk = styled.button`
   &:hover {
     color: #032541;
     background-color: #ffffff;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 26px;
+    height: 24px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    width: 28px;
+    height: 26px;
   }
 `;

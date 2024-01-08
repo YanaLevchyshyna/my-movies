@@ -215,7 +215,7 @@ export const LinksList = styled.ul`
 
 export const AuthorsLink = styled(NavLink)`
   text-decoration: none;
-  font-size: ${props => props.theme.fontWeights.medium};
+  font-weight: ${props => props.theme.fontWeights.medium};
   font-size: ${props => props.theme.fontSizes.m};
   color: #424552;
 
@@ -229,7 +229,7 @@ export const AuthorsLink = styled(NavLink)`
     font-size: ${props => props.theme.fontSizes.s};
   }
   @media screen and (min-width: 1400px) {
-    font-size: ${props => props.theme.fontWeights.medium};
+    font-weight: ${props => props.theme.fontWeights.medium};
     font-size: ${props => props.theme.fontSizes.m};
   }
 `;
