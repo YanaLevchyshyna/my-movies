@@ -107,19 +107,18 @@ export const MovieTitle = styled.h2`
 
 export const DivWrapp = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
   margin-bottom: 12px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    gap: 0;
+    gap: 8px;
   }
 `;
 
 export const ReleaseDate = styled.p`
   color: ${props => props.theme.colors.textColor};
-  font-size: ${props => props.theme.fontSizes.xs};
+  font-size: 11px;
 
   @media screen and (min-width: 768px) {
     font-weight: ${props => props.theme.fontWeights.medium};
@@ -131,7 +130,7 @@ export const ReleaseDate = styled.p`
 `;
 export const Runtime = styled.p`
   color: ${props => props.theme.colors.textColor};
-  font-size: ${props => props.theme.fontSizes.xs};
+  font-size: 11px;
 
   @media screen and (min-width: 768px) {
     font-weight: ${props => props.theme.fontWeights.medium};
@@ -149,13 +148,17 @@ export const VoteAverage = styled.p`
 
 export const Genres = styled.ul`
   display: flex;
-  gap: 10px;
+  gap: 2px;
   font-weight: 400;
+
+  @media screen and (min-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 export const Genre = styled.li`
   text-shadow: ${props => props.theme.shadows.textShadow};
-  font-size: ${props => props.theme.fontSizes.xs};
+  font-size: 11px;
 
   color: ${props => props.theme.colors.textColor};
 
