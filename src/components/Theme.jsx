@@ -22,7 +22,7 @@ export const theme = {
   fontSizes: {
     xs: '12px',
     s: '14px',
-    m: '16px',
+    m: '18px',
     l: '24px',
     xl: '36px',
     xxl: '64px',
@@ -46,7 +46,7 @@ export const theme = {
     round: '50%',
   },
   shadows: {
-    textShadow: '0 1px 1px #fff',
+    textShadow: '0 0.4px 0.4px #fff',
     boxShadow: 'inset -3px -3px 7px #ffffff',
   },
 };

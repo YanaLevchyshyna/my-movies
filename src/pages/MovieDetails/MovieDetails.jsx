@@ -11,6 +11,7 @@ import {
   MovieDetailsSection,
   MovieDetailsContainer,
   MovieDetailsContainerImg,
+  MovieDetailsImg,
   CircularRatingWrapper,
   MovieDetailsContainerDescription,
   MovieTitle,
@@ -136,7 +137,7 @@ function MovieDetails() {
           <MovieDetailsSection>
             <MovieDetailsContainer>
               <MovieDetailsContainerImg>
-                <img
+                <MovieDetailsImg
                   src={`${baseUrl}${poster_path}`}
                   alt={title}
                   srcSet={`${baseUrl}${poster_path} 1x, ${baseUrlBiggerImg}${poster_path} 2x`}

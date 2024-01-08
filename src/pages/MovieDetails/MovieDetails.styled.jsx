@@ -3,13 +3,22 @@ import { NavLink } from 'react-router-dom';
 
 export const BackLink = styled(NavLink)`
   text-decoration: none;
-  margin-bottom: 10px;
-  font-weight: 500;
-  font-size: 18px;
+  margin-bottom: 8px;
   color: #424552;
 
   &:hover {
     color: inherit;
+  }
+  @media screen and (min-width: 375px) {
+    font-size: ${props => props.theme.fontSizes.xs};
+  }
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+  @media screen and (min-width: 1400px) {
+    margin-bottom: 10px;
+    font-weight: ${props => props.theme.fontWeights.medium};
+    font-size: ${props => props.theme.fontSizes.m};
   }
 `;
 
@@ -17,8 +26,16 @@ export const CircularRatingWrapper = styled.div`
   position: absolute;
   top: 5px;
   left: 5px;
-  width: 55px;
-  height: 55px;
+  width: 35px;
+  height: 35px;
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+  @media screen and (min-width: 1400px) {
+    width: 55px;
+    height: 55px;
+  }
 `;
 
 export const MovieDetailsSection = styled.section`
@@ -30,7 +47,25 @@ export const MovieDetailsContainer = styled.div`
   display: flex;
 `;
 
-export const MovieDetailsContainerImg = styled.div``;
+export const MovieDetailsImg = styled.img`
+  @media screen and (min-width: 375px) {
+    width: 200px;
+  }
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1400px) {
+    width: 300px;
+  }
+`;
+
+export const MovieDetailsContainerImg = styled.div`
+  @media screen and (min-width: 375px) {
+  }
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1400px) {
+  }
+`;
 
 export const MovieDetailsContainerDescription = styled.div`
   display: flex;
@@ -41,7 +76,8 @@ export const MovieDetailsContainerDescription = styled.div`
 
 export const MovieTitle = styled.h2`
   margin-bottom: 32px;
-  font-weight: 700;
+  font-size: ${props => props.theme.fontWeights.medium};
+  font-size: ${props => props.theme.fontWeights.bold};
   font-size: ${props => props.theme.fontSizes.m};
   color: ${props => props.theme.colors.textColor};
 
@@ -57,16 +93,26 @@ export const DivWrapp = styled.div`
 
 export const ReleaseDate = styled.p`
   color: ${props => props.theme.colors.textColor};
+  font-size: ${props => props.theme.fontSizes.xs};
 
   @media screen and (min-width: 768px) {
     font-weight: ${props => props.theme.fontWeights.medium};
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.m};
   }
 `;
 export const Runtime = styled.p`
   color: ${props => props.theme.colors.textColor};
+  font-size: ${props => props.theme.fontSizes.xs};
 
   @media screen and (min-width: 768px) {
     font-weight: ${props => props.theme.fontWeights.medium};
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.m};
   }
 `;
 
@@ -82,12 +128,16 @@ export const Genres = styled.ul`
 `;
 
 export const Genre = styled.li`
-  text-shadow: 0 0.4px 0.4px #fff;
-  font-size: ${props => props.theme.fontSizes.s};
+  text-shadow: ${props => props.theme.shadows.textShadow};
+  font-size: ${props => props.theme.fontSizes.xs};
 
   color: ${props => props.theme.colors.textColor};
 
   @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+
+  @media screen and (min-width: 1400px) {
     font-size: ${props => props.theme.fontSizes.m};
   }
 `;
@@ -105,7 +155,18 @@ export const OverviewTitle = styled.h3`
 
 export const MovieOverview = styled.p`
   color: ${props => props.theme.colors.textColor};
-  font-size: 16px;
+  @media screen and (min-width: 375px) {
+    font-size: ${props => props.theme.fontSizes.xs};
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.m};
+    line-height: ${props => props.theme.lineHeights.body};
+  }
 `;
 export const LinksList = styled.ul`
   display: flex;
@@ -116,22 +177,40 @@ export const LinksList = styled.ul`
 
 export const AuthorsLink = styled(NavLink)`
   text-decoration: none;
-  font-weight: 500;
-  font-size: 18px;
+  font-size: ${props => props.theme.fontWeights.medium};
+  font-size: ${props => props.theme.fontSizes.m};
   color: #424552;
 
   &:hover {
     color: inherit;
   }
+  @media screen and (min-width: 375px) {
+    font-size: ${props => props.theme.fontSizes.xs};
+  }
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontWeights.medium};
+    font-size: ${props => props.theme.fontSizes.m};
+  }
 `;
 
 export const ReviewsLink = styled(NavLink)`
   text-decoration: none;
-  font-weight: 500;
-  font-size: 18px;
   color: #424552;
 
   &:hover {
     color: inherit;
+  }
+  @media screen and (min-width: 375px) {
+    font-size: ${props => props.theme.fontSizes.xs};
+  }
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+  @media screen and (min-width: 1400px) {
+    font-weight: ${props => props.theme.fontWeights.medium};
+    font-size: ${props => props.theme.fontSizes.m};
   }
 `;
