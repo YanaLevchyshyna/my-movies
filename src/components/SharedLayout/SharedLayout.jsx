@@ -9,6 +9,7 @@ import { Logo } from 'components/Logo/Logo';
 import {
   Container,
   Header,
+  HeaderContainer,
   Link,
   ButtonsWrapper,
   ButtonEn,
@@ -22,8 +23,7 @@ export const SharedLayout = () => {
     <div>
       <Header>
         <Container>
-          <div>
-            {' '}
+          <HeaderContainer>
             <Logo />
             <nav>
               <Link to="/">{t('home')}</Link>
@@ -43,7 +43,7 @@ export const SharedLayout = () => {
                 UK
               </ButtonUk>
             </ButtonsWrapper>
-          </div>
+          </HeaderContainer>
         </Container>
       </Header>
 
