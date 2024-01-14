@@ -20,7 +20,7 @@ export const Container = styled.div`
 export const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 `;
 
 export const Link = styled(NavLink)`
@@ -62,6 +62,7 @@ export const Link = styled(NavLink)`
 
 export const ButtonsWrapper = styled.div`
   display: flex;
+  align-items: center;
   gap: 5px;
 `;
 
