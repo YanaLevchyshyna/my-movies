@@ -20,7 +20,7 @@ export const SharedLayout = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <div>
+    <>
       <Header>
         <Container>
           <HeaderContainer>
@@ -50,6 +50,6 @@ export const SharedLayout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </div>
+    </>
   );
 };
