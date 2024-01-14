@@ -19,32 +19,37 @@ export const SharedLayout = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <Container>
+    <div>
       <Header>
-        <Logo />
-        <nav>
-          <Link to="/">{t('home')}</Link>
-          <Link to="/movies">{t('movies')}</Link>
-        </nav>
-        <ButtonsWrapper>
-          <ButtonEn
-            disabled={i18n.language === LOCALS.EN}
-            onClick={() => i18n.changeLanguage(LOCALS.EN)}
-          >
-            EN
-          </ButtonEn>
-          <ButtonUk
-            disabled={i18n.language === LOCALS.UK}
-            onClick={() => i18n.changeLanguage(LOCALS.UK)}
-          >
-            UK
-          </ButtonUk>
-        </ButtonsWrapper>
+        <Container>
+          <div>
+            {' '}
+            <Logo />
+            <nav>
+              <Link to="/">{t('home')}</Link>
+              <Link to="/movies">{t('movies')}</Link>
+            </nav>
+            <ButtonsWrapper>
+              <ButtonEn
+                disabled={i18n.language === LOCALS.EN}
+                onClick={() => i18n.changeLanguage(LOCALS.EN)}
+              >
+                EN
+              </ButtonEn>
+              <ButtonUk
+                disabled={i18n.language === LOCALS.UK}
+                onClick={() => i18n.changeLanguage(LOCALS.UK)}
+              >
+                UK
+              </ButtonUk>
+            </ButtonsWrapper>
+          </div>
+        </Container>
       </Header>
 
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </Container>
+    </div>
   );
 };
