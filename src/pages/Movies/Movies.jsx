@@ -44,7 +44,7 @@ export default function Movies() {
           return;
         }
         setMovies(results);
-        // console.log('setMovieName SEARCH ==>', results);
+        console.log('setMovieName SEARCH ==>', results);
       } catch (error) {
         console.error(error);
         toast.error('404 Error !!!', {
