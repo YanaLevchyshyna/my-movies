@@ -8,7 +8,7 @@ import Loader from 'components/Loader/Loader';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchMoviesList from 'components/SearchMoviesList/SearchMoviesList';
 import Footer from 'components/Footer/Footer';
-import { Title } from './Movies.styled';
+import { Title, MoviesContainer } from './Movies.styled';
 
 const searchApi = getApi();
 
@@ -65,14 +65,16 @@ export default function Movies() {
   return (
     <>
       <main>
-        {loading && <Loader />}
-        <Title>{t('searchMovie')}</Title>
-        <SearchBar onSubmit={handleSubmit} />
-        {movies && (
-          <section>
-            <SearchMoviesList movies={movies} />
-          </section>
-        )}
+        <MoviesContainer>
+          {loading && <Loader />}
+          <Title>{t('searchMovie')}</Title>
+          <SearchBar onSubmit={handleSubmit} />
+          {movies && (
+            <section>
+              <SearchMoviesList movies={movies} />
+            </section>
+          )}
+        </MoviesContainer>
       </main>
       <Footer />
     </>
