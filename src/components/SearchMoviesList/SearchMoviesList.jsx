@@ -6,8 +6,9 @@ export default function SearchMoviesList({ movies }) {
   const location = useLocation();
   const { t } = useTranslation();
 
-  const baseUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
-  const baseUrlBiggerImg = 'https://image.tmdb.org/t/p/w440_and_h660_face';
+  const baseUrl = 'https://media.themoviedb.org/t/p/w94_and_h141_bestv2';
+  const baseUrlBiggerImg =
+    'https://media.themoviedb.org/t/p/w188_and_h282_bestv2';
 
   return (
     <ul>
@@ -18,10 +19,10 @@ export default function SearchMoviesList({ movies }) {
               <img
                 src={`${baseUrl}${movie.poster_path}`}
                 srcSet={`${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`}
-                alt={t(movie.original_title)}
+                alt={t(movie.title)}
               />
+              {movie.title}
             </div>
-            {movie.title}
           </Link>
         </li>
       ))}
