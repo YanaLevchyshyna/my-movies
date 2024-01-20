@@ -10,8 +10,10 @@ export const Container = styled.div`
 `;
 
 export const BackLink = styled(NavLink)`
+  display: block;
   text-decoration: none;
   color: #424552;
+  margin-bottom: 10px;
 
   &:hover {
     color: inherit;
@@ -23,7 +25,6 @@ export const BackLink = styled(NavLink)`
     font-size: ${props => props.theme.fontSizes.s};
   }
   @media screen and (min-width: 1400px) {
-    margin-bottom: 10px;
     font-weight: ${props => props.theme.fontWeights.medium};
     font-size: ${props => props.theme.fontSizes.m};
   }
