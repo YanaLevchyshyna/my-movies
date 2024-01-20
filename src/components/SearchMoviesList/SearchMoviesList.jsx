@@ -2,6 +2,16 @@ import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
+import {
+  Wrapper,
+  SearchedMovieList,
+  SearchedMovieItem,
+  MovieDescriptionWrapper,
+  MovieTitle,
+  SearchedMovieImg,
+  MovieOverview,
+} from './SearchMoviesList.styled';
+
 export default function SearchMoviesList({ movies }) {
   const location = useLocation();
   const { t } = useTranslation();
@@ -11,24 +21,27 @@ export default function SearchMoviesList({ movies }) {
     'https://media.themoviedb.org/t/p/w188_and_h282_bestv2';
 
   return (
-    <ul>
+    <SearchedMovieList>
       {movies.map(movie => (
-        <li key={movie.id}>
+        <SearchedMovieItem key={movie.id}>
           <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-            <div>
+            <Wrapper>
               <div>
-                <img
+                <SearchedMovieImg
                   src={`${baseUrl}${movie.poster_path}`}
                   srcSet={`${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`}
                   alt={t(movie.title)}
                 />
               </div>
-              {movie.title}
-            </div>
+              <MovieDescriptionWrapper>
+                <MovieTitle> {movie.title}</MovieTitle>
+                <MovieOverview>{movie.overview}</MovieOverview>
+              </MovieDescriptionWrapper>
+            </Wrapper>
           </Link>
-        </li>
+        </SearchedMovieItem>
       ))}
-    </ul>
+    </SearchedMovieList>
   );
 }
 
