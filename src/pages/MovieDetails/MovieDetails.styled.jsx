@@ -1,9 +1,16 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
+export const Container = styled.div`
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+`;
+
 export const BackLink = styled(NavLink)`
   text-decoration: none;
-  margin-bottom: 8px;
   color: #424552;
 
   &:hover {

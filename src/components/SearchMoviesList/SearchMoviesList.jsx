@@ -16,11 +16,13 @@ export default function SearchMoviesList({ movies }) {
         <li key={movie.id}>
           <Link to={`/movies/${movie.id}`} state={{ from: location }}>
             <div>
-              <img
-                src={`${baseUrl}${movie.poster_path}`}
-                srcSet={`${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`}
-                alt={t(movie.title)}
-              />
+              <div>
+                <img
+                  src={`${baseUrl}${movie.poster_path}`}
+                  srcSet={`${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`}
+                  alt={t(movie.title)}
+                />
+              </div>
               {movie.title}
             </div>
           </Link>

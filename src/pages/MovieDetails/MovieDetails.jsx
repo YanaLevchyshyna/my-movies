@@ -7,6 +7,7 @@ import getApi from 'services/fetchApi';
 import Loader from 'components/Loader/Loader';
 import Error from 'components/Error/Error';
 import {
+  Container,
   BackLink,
   MovieDetailsSection,
   MovieDetailsContainer,
@@ -111,82 +112,83 @@ function MovieDetails() {
 
   return (
     <>
-      {loading && <Loader />}
-
-      {error && <Error />}
-
-      <BackLink to={backLinkLocationRef.current}>
-        &larr; {t('movieDetails.backToMovies')}
-      </BackLink>
-
-      {movie && (
-        <div
-          style={{
-            borderBottom: '1 solid rgba(31.5, 31.5, 31.5, 1)',
-            backgroundPosition: 'left calc((50vw - 170px) - 340px px) top',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundImage: `linear-gradient(
+      <main>
+        <Container>
+          {loading && <Loader />}
+          {error && <Error />}
+          <BackLink to={backLinkLocationRef.current}>
+            &larr; {t('movieDetails.backToMovies')}
+          </BackLink>
+          {movie && (
+            <div
+              style={{
+                borderBottom: '1 solid rgba(31.5, 31.5, 31.5, 1)',
+                backgroundPosition: 'left calc((50vw - 170px) - 340px px) top',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundImage: `linear-gradient(
     to right,
     rgba(31.5, 31.5, 31.5, 1) calc((50vw - 170px) - 340px),
     rgba(31.5, 31.5, 31.5, 0.84) 50%,
     rgba(31.5, 31.5, 31.5, 0.84) 100%
   ), url(${largeImage})`,
-          }}
-        >
-          <MovieDetailsSection>
-            <MovieDetailsContainer>
-              <MovieDetailsContainerImg>
-                <MovieDetailsImg
-                  src={`${baseUrl}${poster_path}`}
-                  alt={title}
-                  srcSet={`${baseUrl}${poster_path} 1x, ${baseUrlBiggerImg}${poster_path} 2x`}
-                />
-              </MovieDetailsContainerImg>
-              <MovieDetailsContainerDescription>
-                <MovieTitle>
-                  {title}&nbsp;&#40;{formattedReleaseYear}&#41;
-                </MovieTitle>
-                <DivWrapp>
-                  <ReleaseDate>
-                    {formattedReleaseFullDate} &bull;&nbsp;
-                  </ReleaseDate>
-                  {/* жанри фільму */}
-                  {genres && (
-                    <Genres>
-                      {genres.map((genre, index) => (
-                        <Genre key={index}>{genre.name}&sbquo;</Genre>
-                      ))}
-                    </Genres>
-                  )}
-                  <Runtime>&nbsp;&bull; {formattedTime}</Runtime>
-                </DivWrapp>
-                <CircularRatingWrapper>
-                  <CircularRating rating={vote_average} />
-                </CircularRatingWrapper>
-                <Tagline>{tagline}</Tagline>
-                <OverviewTitle>{t('movieDetails.overview')}</OverviewTitle>
-                <MovieOverview>{overview}</MovieOverview>
-              </MovieDetailsContainerDescription>
-            </MovieDetailsContainer>
-          </MovieDetailsSection>
-        </div>
-      )}
-      <section>
-        <LinksList>
-          <li>
-            <AuthorsLink to={`/movies/${id}/cast`}>
-              {t('movieDetails.author')}
-            </AuthorsLink>
-          </li>
-          <li>
-            <ReviewsLink to={`/movies/${id}/reviews`}>
-              {t('movieDetails.reviews')}
-            </ReviewsLink>
-          </li>
-        </LinksList>
-      </section>
-      <Outlet />
+              }}
+            >
+              <MovieDetailsSection>
+                <MovieDetailsContainer>
+                  <MovieDetailsContainerImg>
+                    <MovieDetailsImg
+                      src={`${baseUrl}${poster_path}`}
+                      alt={title}
+                      srcSet={`${baseUrl}${poster_path} 1x, ${baseUrlBiggerImg}${poster_path} 2x`}
+                    />
+                  </MovieDetailsContainerImg>
+                  <MovieDetailsContainerDescription>
+                    <MovieTitle>
+                      {title}&nbsp;&#40;{formattedReleaseYear}&#41;
+                    </MovieTitle>
+                    <DivWrapp>
+                      <ReleaseDate>
+                        {formattedReleaseFullDate} &bull;&nbsp;
+                      </ReleaseDate>
+                      {/* жанри фільму */}
+                      {genres && (
+                        <Genres>
+                          {genres.map((genre, index) => (
+                            <Genre key={index}>{genre.name}&sbquo;</Genre>
+                          ))}
+                        </Genres>
+                      )}
+                      <Runtime>&nbsp;&bull; {formattedTime}</Runtime>
+                    </DivWrapp>
+                    <CircularRatingWrapper>
+                      <CircularRating rating={vote_average} />
+                    </CircularRatingWrapper>
+                    <Tagline>{tagline}</Tagline>
+                    <OverviewTitle>{t('movieDetails.overview')}</OverviewTitle>
+                    <MovieOverview>{overview}</MovieOverview>
+                  </MovieDetailsContainerDescription>
+                </MovieDetailsContainer>
+              </MovieDetailsSection>
+            </div>
+          )}
+          <section>
+            <LinksList>
+              <li>
+                <AuthorsLink to={`/movies/${id}/cast`}>
+                  {t('movieDetails.author')}
+                </AuthorsLink>
+              </li>
+              <li>
+                <ReviewsLink to={`/movies/${id}/reviews`}>
+                  {t('movieDetails.reviews')}
+                </ReviewsLink>
+              </li>
+            </LinksList>
+          </section>
+          <Outlet />
+        </Container>
+      </main>
       <Footer />
     </>
   );
