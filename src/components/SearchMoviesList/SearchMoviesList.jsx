@@ -24,21 +24,19 @@ export default function SearchMoviesList({ movies }) {
     <SearchedMovieList>
       {movies.map(movie => (
         <SearchedMovieItem key={movie.id}>
-          <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-            <Wrapper>
-              <div>
-                <SearchedMovieImg
-                  src={`${baseUrl}${movie.poster_path}`}
-                  srcSet={`${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`}
-                  alt={t(movie.title)}
-                />
-              </div>
-              <MovieDescriptionWrapper>
-                <MovieTitle> {movie.title}</MovieTitle>
-                <MovieOverview>{movie.overview}</MovieOverview>
-              </MovieDescriptionWrapper>
-            </Wrapper>
-          </Link>
+          <Wrapper>
+            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+              <SearchedMovieImg
+                src={`${baseUrl}${movie.poster_path}`}
+                srcSet={`${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`}
+                alt={t(movie.title)}
+              />
+            </Link>
+            <MovieDescriptionWrapper>
+              <MovieTitle> {movie.title}</MovieTitle>
+              <MovieOverview>{movie.overview}</MovieOverview>
+            </MovieDescriptionWrapper>
+          </Wrapper>
         </SearchedMovieItem>
       ))}
     </SearchedMovieList>
