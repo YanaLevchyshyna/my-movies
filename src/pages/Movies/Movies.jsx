@@ -37,14 +37,14 @@ export default function Movies() {
           searchQuery,
           currentLng
         );
-        if (!results) {
-          toast.error('The movie could not be found.', {
+        if (results.length === 0) {
+          toast.error('The movie could not be found. Please try again.', {
             position: toast.POSITION.TOP_CENTER,
           });
           return;
         }
         setMovies(results);
-        console.log('setMovieName SEARCH ==>', results);
+        // console.log('setMovieName SEARCH ==>', results);
       } catch (error) {
         console.error(error);
         toast.error('404 Error !!!', {

@@ -26,7 +26,6 @@ export default function SearchMoviesList({ movies }) {
       {movies.map(movie => (
         <SearchedMovieItem key={movie.id}>
           <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-            {' '}
             <Wrapper>
               <SearchedMovieImg
                 src={
