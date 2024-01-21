@@ -11,6 +11,7 @@ import {
   SearchedMovieImg,
   MovieOverview,
 } from './SearchMoviesList.styled';
+import defaultPosterImg from '../../images/default-movie-img.png';
 
 export default function SearchMoviesList({ movies }) {
   const location = useLocation();
@@ -24,19 +25,29 @@ export default function SearchMoviesList({ movies }) {
     <SearchedMovieList>
       {movies.map(movie => (
         <SearchedMovieItem key={movie.id}>
-          <Wrapper>
-            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+          <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+            {' '}
+            <Wrapper>
               <SearchedMovieImg
-                src={`${baseUrl}${movie.poster_path}`}
-                srcSet={`${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`}
+                src={
+                  movie.poster_path
+                    ? `${baseUrl}${movie.poster_path}`
+                    : defaultPosterImg
+                }
+                srcSet={
+                  movie.poster_path
+                    ? `${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`
+                    : defaultPosterImg
+                }
                 alt={t(movie.title)}
               />
-            </Link>
-            <MovieDescriptionWrapper>
-              <MovieTitle> {movie.title}</MovieTitle>
-              <MovieOverview>{movie.overview}</MovieOverview>
-            </MovieDescriptionWrapper>
-          </Wrapper>
+
+              <MovieDescriptionWrapper>
+                <MovieTitle> {movie.title}</MovieTitle>
+                <MovieOverview>{movie.overview}</MovieOverview>
+              </MovieDescriptionWrapper>
+            </Wrapper>
+          </Link>
         </SearchedMovieItem>
       ))}
     </SearchedMovieList>
