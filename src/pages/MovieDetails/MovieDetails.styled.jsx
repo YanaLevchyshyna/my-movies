@@ -37,6 +37,9 @@ export const CircularRatingWrapper = styled.div`
   width: 35px;
   height: 35px;
 
+  /* top: calc(2% * (100 / 265));
+  left: calc(35% * (100 / 265)); */
+
   @media screen and (min-width: 768px) {
     top: 5px;
     left: 5px;
@@ -50,12 +53,17 @@ export const CircularRatingWrapper = styled.div`
 `;
 
 export const MovieDetailsSection = styled.section`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   padding: 35px 40px;
 `;
 
 export const MovieDetailsContainer = styled.div`
   display: flex;
   position: relative;
+  max-width: 270px;
 
   @media screen and (min-width: 375px) {
     flex-direction: column;
@@ -63,11 +71,13 @@ export const MovieDetailsContainer = styled.div`
     align-items: center;
   }
   @media screen and (min-width: 768px) {
+    max-width: 767px;
     position: relative;
     flex-direction: row;
     justify-content: flex-start;
   }
   @media screen and (min-width: 1400px) {
+    max-width: 1439px;
   }
 `;
 
@@ -115,7 +125,8 @@ export const MovieTitle = styled.h2`
 
 export const DivWrapp = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 5px;
   margin-bottom: 12px;
 
   @media screen and (min-width: 768px) {
