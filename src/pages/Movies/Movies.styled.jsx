@@ -10,12 +10,13 @@ export const MoviesContainer = styled.div`
 
 export const Title = styled.h1`
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   color: #032541;
   font-size: ${props => props.theme.fontSizes.s};
 
   @media screen and (min-width: 768px) {
     font-size: 32px;
+    margin-bottom: 50px;
   }
 `;
 
