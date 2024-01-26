@@ -16,10 +16,10 @@ import {
   CircularRatingWrapper,
   MovieDetailsContainerDescription,
   MovieTitle,
-  DivWrapp,
   MovieOverview,
   Genres,
   Genre,
+  ReleaseDateWrapper,
   ReleaseDateTitle,
   ReleaseDate,
   Runtime,
@@ -148,12 +148,13 @@ function MovieDetails() {
                     <MovieTitle>
                       {title}&nbsp;&#40;{formattedReleaseYear}&#41;
                     </MovieTitle>
-                    <DivWrapp>
-                      <ReleaseDateTitle>Release date:</ReleaseDateTitle>
-                      <ReleaseDate>
-                        {formattedReleaseFullDate} &bull;&nbsp;
-                      </ReleaseDate>
-                      {/* жанри фільму */}
+
+                    <ReleaseDateWrapper>
+                      <ReleaseDateTitle>Release date:&nbsp;</ReleaseDateTitle>
+                      <ReleaseDate>{formattedReleaseFullDate}</ReleaseDate>
+                    </ReleaseDateWrapper>
+                    <div>
+                      <h3>Genres</h3>
                       {genres && (
                         <Genres>
                           {genres.map((genre, index) => (
@@ -161,8 +162,12 @@ function MovieDetails() {
                           ))}
                         </Genres>
                       )}
+                    </div>
+                    <div>
+                      <h3>Runtime</h3>
                       <Runtime>&nbsp;&bull; {formattedTime}</Runtime>
-                    </DivWrapp>
+                    </div>
+
                     <CircularRatingWrapper>
                       <CircularRating rating={vote_average} />
                     </CircularRatingWrapper>
