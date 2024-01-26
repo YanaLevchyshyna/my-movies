@@ -17,6 +17,8 @@ import {
   MovieDetailsContainerDescription,
   MovieTitle,
   MovieOverview,
+  GenresWrapper,
+  GenresTitle,
   Genres,
   Genre,
   ReleaseDateWrapper,
@@ -153,8 +155,8 @@ function MovieDetails() {
                       <ReleaseDateTitle>Release date:&nbsp;</ReleaseDateTitle>
                       <ReleaseDate>{formattedReleaseFullDate}</ReleaseDate>
                     </ReleaseDateWrapper>
-                    <div>
-                      <h3>Genres</h3>
+                    <GenresWrapper>
+                      <GenresTitle>Genres:&nbsp;</GenresTitle>
                       {genres && (
                         <Genres>
                           {genres.map((genre, index) => (
@@ -162,7 +164,7 @@ function MovieDetails() {
                           ))}
                         </Genres>
                       )}
-                    </div>
+                    </GenresWrapper>
                     <div>
                       <h3>Runtime</h3>
                       <Runtime>&nbsp;&bull; {formattedTime}</Runtime>

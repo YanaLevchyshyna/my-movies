@@ -143,6 +143,8 @@ export const DivWrapp = styled.div`
 
 export const ReleaseDateWrapper = styled.div`
   display: flex;
+  align-items: center;
+  margin-bottom: 8px;
 `;
 
 export const ReleaseDateTitle = styled.h3`
@@ -154,7 +156,7 @@ export const ReleaseDateTitle = styled.h3`
   }
 
   @media screen and (min-width: 1400px) {
-    font-size: ${props => props.theme.fontSizes.m};
+    font-size: ${props => props.theme.fontSizes.l};
   }
 `;
 
@@ -167,7 +169,7 @@ export const ReleaseDate = styled.p`
     font-size: ${props => props.theme.fontSizes.s};
   }
   @media screen and (min-width: 1400px) {
-    font-size: ${props => props.theme.fontSizes.m};
+    font-size: ${props => props.theme.fontSizes.l};
   }
 `;
 export const Runtime = styled.p`
@@ -188,6 +190,25 @@ export const VoteAverage = styled.p`
   color: ${props => props.theme.colors.textColor};
 `;
 
+export const GenresWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+`;
+
+export const GenresTitle = styled.h3`
+  font-size: ${props => props.theme.fontSizes.xs};
+  color: ${props => props.theme.colors.textColor};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.l};
+  }
+`;
+
 export const Genres = styled.ul`
   display: flex;
   gap: 2px;
@@ -199,7 +220,6 @@ export const Genres = styled.ul`
 `;
 
 export const Genre = styled.li`
-  text-shadow: ${props => props.theme.shadows.textShadow};
   font-size: 10px;
 
   color: ${props => props.theme.colors.textColor};
@@ -209,7 +229,7 @@ export const Genre = styled.li`
   }
 
   @media screen and (min-width: 1400px) {
-    font-size: ${props => props.theme.fontSizes.m};
+    font-size: ${props => props.theme.fontSizes.l};
   }
 `;
 
