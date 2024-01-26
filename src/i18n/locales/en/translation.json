@@ -10,6 +10,9 @@
     "reviews": "Reviews",
     "author": "Authors",
     "noReviews": "There are no reviews.",
-    "character": "Character"
+    "character": "Character",
+    "runtime": "Runtime:",
+    "genres": "Genres:",
+    "releaseВate": "Release date:"
   }
 }

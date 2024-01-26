@@ -154,11 +154,15 @@ function MovieDetails() {
                     </MovieTitle>
 
                     <ReleaseDateWrapper>
-                      <ReleaseDateTitle>Release date:&nbsp;</ReleaseDateTitle>
+                      <ReleaseDateTitle>
+                        {t('movieDetails.releaseВate')}&nbsp;
+                      </ReleaseDateTitle>
                       <ReleaseDate>{formattedReleaseFullDate}</ReleaseDate>
                     </ReleaseDateWrapper>
                     <GenresWrapper>
-                      <GenresTitle>Genres:&nbsp;</GenresTitle>
+                      <GenresTitle>
+                        {t('movieDetails.genres')}&nbsp;
+                      </GenresTitle>
                       {genres && (
                         <Genres>
                           {genres.map((genre, index) => (
@@ -168,7 +172,9 @@ function MovieDetails() {
                       )}
                     </GenresWrapper>
                     <RuntimeWrapper>
-                      <RuntimeTitle>Runtime:&nbsp;</RuntimeTitle>
+                      <RuntimeTitle>
+                        {t('movieDetails.runtime')}&nbsp;
+                      </RuntimeTitle>
                       <Runtime>{formattedTime}</Runtime>
                     </RuntimeWrapper>
                     <CircularRatingWrapper>
