@@ -162,7 +162,7 @@ export const ReleaseDateTitle = styled.h3`
 
 export const ReleaseDate = styled.p`
   color: ${props => props.theme.colors.textColor};
-  font-size: 10px;
+  font-size: ${props => props.theme.fontSizes.xs};
 
   @media screen and (min-width: 768px) {
     font-weight: ${props => props.theme.fontWeights.medium};
@@ -172,16 +172,36 @@ export const ReleaseDate = styled.p`
     font-size: ${props => props.theme.fontSizes.l};
   }
 `;
-export const Runtime = styled.p`
+
+export const RuntimeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+`;
+
+export const RuntimeTitle = styled.h3`
+  font-size: ${props => props.theme.fontSizes.xs};
   color: ${props => props.theme.colors.textColor};
-  font-size: 10px;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.l};
+  }
+`;
+
+export const Runtime = styled.p`
+  font-size: ${props => props.theme.fontSizes.xs};
+  color: ${props => props.theme.colors.textColor};
 
   @media screen and (min-width: 768px) {
     font-weight: ${props => props.theme.fontWeights.medium};
     font-size: ${props => props.theme.fontSizes.s};
   }
   @media screen and (min-width: 1400px) {
-    font-size: ${props => props.theme.fontSizes.m};
+    font-size: ${props => props.theme.fontSizes.l};
   }
 `;
 
@@ -215,13 +235,17 @@ export const Genres = styled.ul`
   font-weight: 400;
 
   @media screen and (min-width: 768px) {
+    gap: 8px;
+  }
+
+  @media screen and (min-width: 1400px) {
     gap: 10px;
   }
 `;
 
 export const Genre = styled.li`
   font-size: 10px;
-
+  font-size: ${props => props.theme.fontSizes.xs};
   color: ${props => props.theme.colors.textColor};
 
   @media screen and (min-width: 768px) {
@@ -244,7 +268,7 @@ export const Tagline = styled.p`
   }
 
   @media screen and (min-width: 1400px) {
-    font-size: ${props => props.theme.fontSizes.m};
+    font-size: ${props => props.theme.fontSizes.l};
   }
 `;
 
@@ -263,9 +287,7 @@ export const OverviewTitle = styled.h3`
 
 export const MovieOverview = styled.p`
   color: ${props => props.theme.colors.textColor};
-  @media screen and (min-width: 375px) {
-    font-size: ${props => props.theme.fontSizes.xs};
-  }
+  font-size: 10px;
 
   @media screen and (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.s};

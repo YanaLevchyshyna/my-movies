@@ -24,6 +24,8 @@ import {
   ReleaseDateWrapper,
   ReleaseDateTitle,
   ReleaseDate,
+  RuntimeWrapper,
+  RuntimeTitle,
   Runtime,
   Tagline,
   OverviewTitle,
@@ -165,11 +167,10 @@ function MovieDetails() {
                         </Genres>
                       )}
                     </GenresWrapper>
-                    <div>
-                      <h3>Runtime</h3>
-                      <Runtime>&nbsp;&bull; {formattedTime}</Runtime>
-                    </div>
-
+                    <RuntimeWrapper>
+                      <RuntimeTitle>Runtime:&nbsp;</RuntimeTitle>
+                      <Runtime>{formattedTime}</Runtime>
+                    </RuntimeWrapper>
                     <CircularRatingWrapper>
                       <CircularRating rating={vote_average} />
                     </CircularRatingWrapper>
