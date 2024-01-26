@@ -37,9 +37,6 @@ export const CircularRatingWrapper = styled.div`
   width: 35px;
   height: 35px;
 
-  /* top: calc(2% * (100 / 265));
-  left: calc(35% * (100 / 265)); */
-
   @media screen and (min-width: 768px) {
     top: 5px;
     left: 5px;
@@ -96,8 +93,10 @@ export const MovieDetailsImg = styled.img`
 
 export const MovieDetailsContainerImg = styled.div`
   @media screen and (min-width: 375px) {
+    margin-bottom: 10px;
   }
   @media screen and (min-width: 768px) {
+    margin-bottom: 0;
   }
   @media screen and (min-width: 1400px) {
   }
@@ -107,17 +106,22 @@ export const MovieDetailsContainerDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 40px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 40px;
+  }
 `;
 
 export const MovieTitle = styled.h2`
-  margin-bottom: 24px;
+  margin-bottom: 18px;
+  text-align: center;
   font-weight: ${props => props.theme.fontWeights.medium};
   font-size: ${props => props.theme.fontSizes.m};
   color: ${props => props.theme.colors.textColor};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
+    text-align: start;
     font-size: ${props => props.theme.fontSizes.xl};
     font-size: ${props => props.theme.fontWeights.bold};
   }
@@ -130,14 +134,25 @@ export const DivWrapp = styled.div`
   margin-bottom: 12px;
 
   @media screen and (min-width: 768px) {
-    flex-direction: row;
     gap: 8px;
+  }
+  @media screen and (min-width: 1400px) {
+    flex-direction: row;
+  }
+`;
+
+export const ReleaseDateTitle = styled.h3`
+  font-size: ${props => props.theme.fontSizes.xs};
+  color: ${props => props.theme.colors.textColor};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
   }
 `;
 
 export const ReleaseDate = styled.p`
   color: ${props => props.theme.colors.textColor};
-  font-size: 11px;
+  font-size: 10px;
 
   @media screen and (min-width: 768px) {
     font-weight: ${props => props.theme.fontWeights.medium};
@@ -149,7 +164,7 @@ export const ReleaseDate = styled.p`
 `;
 export const Runtime = styled.p`
   color: ${props => props.theme.colors.textColor};
-  font-size: 11px;
+  font-size: 10px;
 
   @media screen and (min-width: 768px) {
     font-weight: ${props => props.theme.fontWeights.medium};
@@ -177,7 +192,7 @@ export const Genres = styled.ul`
 
 export const Genre = styled.li`
   text-shadow: ${props => props.theme.shadows.textShadow};
-  font-size: 11px;
+  font-size: 10px;
 
   color: ${props => props.theme.colors.textColor};
 
@@ -207,7 +222,15 @@ export const Tagline = styled.p`
 
 export const OverviewTitle = styled.h3`
   margin-bottom: 5px;
+  font-size: ${props => props.theme.fontSizes.xs};
   color: ${props => props.theme.colors.textColor};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.m};
+  }
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.l};
+  }
 `;
 
 export const MovieOverview = styled.p`

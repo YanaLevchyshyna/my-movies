@@ -20,6 +20,7 @@ import {
   MovieOverview,
   Genres,
   Genre,
+  ReleaseDateTitle,
   ReleaseDate,
   Runtime,
   Tagline,
@@ -148,6 +149,7 @@ function MovieDetails() {
                       {title}&nbsp;&#40;{formattedReleaseYear}&#41;
                     </MovieTitle>
                     <DivWrapp>
+                      <ReleaseDateTitle>Release date:</ReleaseDateTitle>
                       <ReleaseDate>
                         {formattedReleaseFullDate} &bull;&nbsp;
                       </ReleaseDate>
