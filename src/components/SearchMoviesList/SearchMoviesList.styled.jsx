@@ -26,9 +26,26 @@ export const Wrapper = styled.div`
 
 export const MovieTitle = styled.h2`
   margin-bottom: 10px;
+  font-size: 14px;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.m};
+  }
 `;
 
-export const MovieOverview = styled.p``;
+export const MovieOverview = styled.p`
+  font-size: 10px;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.xs};
+  }
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.m};
+  }
+`;
 
 export const MovieDescriptionWrapper = styled.div`
   margin-left: 15px;
