@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
 
 export const MovieTitle = styled.h2`
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 
   @media screen and (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.xs};
