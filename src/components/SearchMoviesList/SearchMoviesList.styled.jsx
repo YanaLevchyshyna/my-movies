@@ -22,17 +22,18 @@ export const SearchedMovieImg = styled.img`
 
 export const Wrapper = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 export const MovieTitle = styled.h2`
-  margin-bottom: 10px;
   font-size: 14px;
+  margin-bottom: 10px;
 
   @media screen and (min-width: 768px) {
-    font-size: ${props => props.theme.fontSizes.s};
+    font-size: ${props => props.theme.fontSizes.xs};
   }
   @media screen and (min-width: 1400px) {
-    font-size: ${props => props.theme.fontSizes.m};
+    font-size: ${props => props.theme.fontSizes.s};
   }
 `;
 
@@ -43,10 +44,10 @@ export const MovieOverview = styled.p`
     font-size: ${props => props.theme.fontSizes.xs};
   }
   @media screen and (min-width: 1400px) {
-    font-size: ${props => props.theme.fontSizes.m};
+    font-size: ${props => props.theme.fontSizes.s};
   }
 `;
 
 export const MovieDescriptionWrapper = styled.div`
-  margin-left: 15px;
+  padding: 20px 10px;
 `;
