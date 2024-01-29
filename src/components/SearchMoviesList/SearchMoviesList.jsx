@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
-import ReadMoreReact from 'read-more-react';
+// import ReadMoreReact from 'read-more-react';
 
 import {
   Wrapper,
@@ -11,10 +12,13 @@ import {
   MovieTitle,
   SearchedMovieImg,
   MovieOverview,
+  ReadMoreButton,
 } from './SearchMoviesList.styled';
 import defaultPosterImg from '../../images/default-movie-img.png';
 
 export default function SearchMoviesList({ movies }) {
+  const [showFullMovieOverview, setShowFullMovieOverview] = useState(false);
+
   const location = useLocation();
   const { t } = useTranslation();
 
@@ -44,14 +48,25 @@ export default function SearchMoviesList({ movies }) {
               <Link to={`/movies/${movie.id}`} state={{ from: location }}>
                 <MovieTitle> {movie.title}</MovieTitle>
               </Link>
-              <MovieOverview>{}</MovieOverview>
-              <ReadMoreReact
-                text={movie.overview}
-                min={80}
-                ideal={100}
-                max={200}
-                readMoreText="click here to read more"
-              />
+              {showFullMovieOverview ? (
+                <div>
+                  <MovieOverview>{movie.overview}</MovieOverview>
+                  <ReadMoreButton
+                    onClick={() => setShowFullMovieOverview(false)}
+                  >
+                    Show less
+                  </ReadMoreButton>
+                </div>
+              ) : (
+                <div>
+                  <MovieOverview>{movie.overview.slice(0, 150)}</MovieOverview>
+                  <ReadMoreButton
+                    onClick={() => setShowFullMovieOverview(true)}
+                  >
+                    Read more
+                  </ReadMoreButton>
+                </div>
+              )}
             </MovieDescriptionWrapper>
           </Wrapper>
         </SearchedMovieItem>

@@ -48,6 +48,27 @@ export const MovieOverview = styled.p`
   }
 `;
 
+export const ReadMoreButton = styled.button`
+  font-size: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.3s;
+
+  &:hover {
+    color: ${props => props.theme.colors.buttonHover};
+    text-decoration: underline;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.xs};
+  }
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+`;
+
 export const MovieDescriptionWrapper = styled.div`
   padding: 20px 10px;
 `;

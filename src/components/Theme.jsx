@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
-    button: '#f59fef',
-    buttonHover: '#FFF',
+    button: '#032541',
+    buttonHover: '#032541',
     textColor: '#ffffff',
     borderColor: '#1e3c72',
     primary: '#f6f6f6',
