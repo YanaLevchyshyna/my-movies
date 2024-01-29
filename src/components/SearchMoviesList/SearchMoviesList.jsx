@@ -1,6 +1,7 @@
 import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
+import ReadMoreReact from 'read-more-react';
 
 import {
   Wrapper,
@@ -25,28 +26,34 @@ export default function SearchMoviesList({ movies }) {
     <SearchedMovieList>
       {movies.map(movie => (
         <SearchedMovieItem key={movie.id}>
-          <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-            <Wrapper>
-              <SearchedMovieImg
-                src={
-                  movie.poster_path
-                    ? `${baseUrl}${movie.poster_path}`
-                    : defaultPosterImg
-                }
-                srcSet={
-                  movie.poster_path
-                    ? `${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`
-                    : defaultPosterImg
-                }
-                alt={t(movie.title)}
-              />
-
-              <MovieDescriptionWrapper>
+          <Wrapper>
+            <SearchedMovieImg
+              src={
+                movie.poster_path
+                  ? `${baseUrl}${movie.poster_path}`
+                  : defaultPosterImg
+              }
+              srcSet={
+                movie.poster_path
+                  ? `${baseUrl}${movie.poster_path} 1x, ${baseUrlBiggerImg}${movie.poster_path} 2x`
+                  : defaultPosterImg
+              }
+              alt={t(movie.title)}
+            />
+            <MovieDescriptionWrapper>
+              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
                 <MovieTitle> {movie.title}</MovieTitle>
-                <MovieOverview>{movie.overview}</MovieOverview>
-              </MovieDescriptionWrapper>
-            </Wrapper>
-          </Link>
+              </Link>
+              <MovieOverview>{}</MovieOverview>
+              <ReadMoreReact
+                text={movie.overview}
+                min={80}
+                ideal={100}
+                max={200}
+                readMoreText="click here to read more"
+              />
+            </MovieDescriptionWrapper>
+          </Wrapper>
         </SearchedMovieItem>
       ))}
     </SearchedMovieList>
