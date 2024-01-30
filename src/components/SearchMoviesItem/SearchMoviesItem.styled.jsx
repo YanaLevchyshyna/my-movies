@@ -33,6 +33,7 @@ export const MovieTitle = styled.h2`
 
 export const MovieOverview = styled.p`
   font-size: 10px;
+  display: inline-block;
 
   @media screen and (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.xs};
