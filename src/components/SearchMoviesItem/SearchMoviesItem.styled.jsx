@@ -9,9 +9,8 @@ export const SearchedMovieItem = styled.li`
 `;
 
 export const SearchedMovieImg = styled.img`
-  /* width: 100%;
-  min-width: 100%; */
-  height: 100%;
+  width: 94px;
+  height: 141px;
 `;
 
 export const Wrapper = styled.div`
@@ -32,7 +31,7 @@ export const MovieTitle = styled.h2`
 `;
 
 export const MovieOverview = styled.p`
-  font-size: 10px;
+  font-size: 9px;
   display: inline-block;
 
   @media screen and (min-width: 768px) {
@@ -44,12 +43,12 @@ export const MovieOverview = styled.p`
 `;
 
 export const ReadMoreButton = styled.button`
-  font-size: 10px;
-  cursor: pointer;
+  font-size: 9px;
   background: none;
   border: none;
   padding: 0;
   transition: color 0.3s;
+  cursor: pointer;
 
   &:hover {
     color: ${props => props.theme.colors.buttonHover};

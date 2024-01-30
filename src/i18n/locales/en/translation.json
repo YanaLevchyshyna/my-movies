@@ -13,6 +13,8 @@
     "character": "Character",
     "runtime": "Runtime:",
     "genres": "Genres:",
-    "releaseВate": "Release date:"
+    "releaseВate": "Release date:",
+    "readMore": "...Read more",
+    "showLess": "Show less"
   }
 }

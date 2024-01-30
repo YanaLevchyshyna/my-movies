@@ -24,7 +24,7 @@ export default function SearchMoviesItem({ movie }) {
   const baseUrlBiggerImg =
     'https://media.themoviedb.org/t/p/w188_and_h282_bestv2';
 
-  const shouldDisplayReadMoreButton = movie.overview.length > 150;
+  const shouldDisplayReadMoreButton = movie.overview.length > 110;
 
   return (
     <SearchedMovieItem>
@@ -50,15 +50,15 @@ export default function SearchMoviesItem({ movie }) {
             <div>
               <MovieOverview>{movie.overview}</MovieOverview>
               <ReadMoreButton onClick={() => setShowFullMovieOverview(false)}>
-                Show less
+                {t('movieDetails.showLess')}
               </ReadMoreButton>
             </div>
           ) : (
             <div>
-              <MovieOverview>{movie.overview.slice(0, 150)}</MovieOverview>
+              <MovieOverview>{movie.overview.slice(0, 110)}</MovieOverview>
               {shouldDisplayReadMoreButton && (
                 <ReadMoreButton onClick={() => setShowFullMovieOverview(true)}>
-                  ...Read more
+                  {t('movieDetails.readMore')}
                 </ReadMoreButton>
               )}
             </div>
