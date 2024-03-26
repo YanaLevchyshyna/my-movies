@@ -40,6 +40,7 @@ export default function TrendingMoviesList({ movies }) {
             </MovieItem>
           ))}
         </MoviesList>
+        <button>Load more</button>
       </Container>
     </Section>
   );
