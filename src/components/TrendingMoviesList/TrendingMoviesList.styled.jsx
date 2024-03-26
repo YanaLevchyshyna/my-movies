@@ -96,27 +96,32 @@ export const CircularRatingWrap = styled.div`
 `;
 
 export const Button = styled.button`
+  text-decoration: none;
   display: block;
+  padding: 12px 40px;
   margin: 0px auto;
 
-  background-color: ${props => props.theme.colors.button};
+  border: none;
+  border-radius: 30px;
+  background-image: linear-gradient(
+    45deg,
+    #6ab1d7 0%,
+    #33cbc4 50%,
+    #002878 100%
+  );
+  background-position: 100% 0;
+  background-size: 200% 200%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
   color: ${props => props.theme.colors.textColor};
+  box-shadow: 0 16px 32px 0 rgba(0, 40, 120, 0.35);
+  transition: 0.5s;
 
-  padding: 12px 20px 12px;
-  min-width: 120px;
-  border: 2px solid transparent;
-  min-height: 44px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
-    0 5px 15px 0 rgba(37, 44, 97, 0.15);
-  font-size: 14px;
-  line-height: 1.2;
-  font-weight: 700;
-  user-select: none;
-  text-align: center;
-  text-decoration: none;
   cursor: pointer;
 
-  transition: color 0.2s ease, background-color 0.2s ease,
-    border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  :hover {
+    box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
+    background-position: 0 0;
+  }
 `;
