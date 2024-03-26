@@ -19,6 +19,7 @@ export const MoviesList = styled.ul`
   justify-content: center;
   gap: 20px;
   margin: 0px auto;
+  margin-bottom: 40px;
 `;
 
 export const MovieItem = styled.li`
@@ -92,4 +93,30 @@ export const CircularRatingWrap = styled.div`
   left: 12px;
   width: 40px;
   height: 40px;
+`;
+
+export const Button = styled.button`
+  display: block;
+  margin: 0px auto;
+
+  background-color: ${props => props.theme.colors.button};
+  color: ${props => props.theme.colors.textColor};
+
+  padding: 12px 20px 12px;
+  min-width: 120px;
+  border: 2px solid transparent;
+  min-height: 44px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
+    0 5px 15px 0 rgba(37, 44, 97, 0.15);
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 700;
+  user-select: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: color 0.2s ease, background-color 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 `;

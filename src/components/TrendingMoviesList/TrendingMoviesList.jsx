@@ -11,6 +11,7 @@ import {
   PosterWrapp,
   MovieTitle,
   CircularRatingWrap,
+  Button,
 } from './TrendingMoviesList.styled';
 
 export default function TrendingMoviesList({ movies }) {
@@ -40,7 +41,7 @@ export default function TrendingMoviesList({ movies }) {
             </MovieItem>
           ))}
         </MoviesList>
-        <button>Load more</button>
+        <Button>Load more</Button>
       </Container>
     </Section>
   );
