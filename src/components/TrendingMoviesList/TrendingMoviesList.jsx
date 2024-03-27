@@ -41,7 +41,7 @@ export default function TrendingMoviesList({ movies }) {
             </MovieItem>
           ))}
         </MoviesList>
-        <Button>Load more</Button>
+        <Button>{t('loadMore')}</Button>
       </Container>
     </Section>
   );
