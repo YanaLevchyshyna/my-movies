@@ -54,9 +54,10 @@ TrendingMoviesList.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
-      vote_average: PropTypes.number,
-      original_title: PropTypes.string,
-      poster_path: PropTypes.string,
+      vote_average: PropTypes.number.isRequired,
+      original_title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string.isRequired,
     }).isRequired
-  ),
+  ).isRequired,
+  onClick: PropTypes.func.isRequired,
 };
