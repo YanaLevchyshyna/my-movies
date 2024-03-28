@@ -14,7 +14,7 @@ import {
   Button,
 } from './TrendingMoviesList.styled';
 
-export default function TrendingMoviesList({ movies }) {
+export default function TrendingMoviesList({ movies, onClick }) {
   const { t } = useTranslation();
   const location = useLocation();
   const baseUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
@@ -41,7 +41,9 @@ export default function TrendingMoviesList({ movies }) {
             </MovieItem>
           ))}
         </MoviesList>
-        <Button>{t('loadMore')}</Button>
+        <Button type="button" onClick={onClick}>
+          {t('loadMore')}
+        </Button>
       </Container>
     </Section>
   );

@@ -7,6 +7,26 @@ const options = {
   },
 };
 
+async function fetchPopularMovies(lng, page) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/popular?language=${lng}&page=${page}`,
+      options
+    );
+    console.log('response fetch', response);
+
+    if (!response.ok) {
+      return Promise.reject(new Error(`Sorry, something went wrong...`));
+    }
+
+    const data = await response.json();
+    console.log('data POPULAR', data);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function fetchTrendingMovies(lng) {
   try {
     const response = await fetch(
@@ -102,6 +122,7 @@ const getApi = () => {
     fetchMovieActors,
     fetchMovieReviews,
     fetchSearchMovie,
+    fetchPopularMovies,
   };
 };
 

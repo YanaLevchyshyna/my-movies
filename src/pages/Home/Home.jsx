@@ -20,12 +20,23 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+
+  console.log('currentPage', currentPage);
+  console.log('totalPages', totalPages);
+
   useEffect(() => {
     setLoading(true);
 
     const fetchData = async () => {
       try {
-        const { results } = await moviesApi.fetchTrendingMovies(language);
+        const { results, total_pages } = await moviesApi.fetchPopularMovies(
+          language,
+          currentPage
+        );
+        // console.log('results', results);
+        // console.log('total__Pages', total_pages);
 
         if (results.length === 0) {
           toast.error(t('Sorry, something went wrong... Please try again!'), {
@@ -33,7 +44,10 @@ function Home() {
           });
           return;
         }
-        setMovies(results);
+        setMovies(prevResults =>
+          currentPage === 1 ? results : [...prevResults, ...results]
+        );
+        setTotalPages(total_pages);
       } catch (error) {
         setError(error);
       } finally {
@@ -41,7 +55,11 @@ function Home() {
       }
     };
     fetchData();
-  }, [language, t]);
+  }, [language, t, currentPage]);
+
+  const onLoadMoreButtonClick = () => {
+    setCurrentPage(prevPage => prevPage + 1);
+  };
 
   return (
     <>
@@ -51,7 +69,7 @@ function Home() {
         {error && <Error />}
 
         <Title>{t('trendingToday')}</Title>
-        <TrendingMoviesList movies={movies} />
+        <TrendingMoviesList movies={movies} onClick={onLoadMoreButtonClick} />
       </main>
       <Footer />
     </>
