@@ -12,7 +12,7 @@ import {
   MovieTitle,
   CircularRatingWrap,
   Button,
-} from './TrendingMoviesList.styled';
+} from './PopularMovies.styled';
 
 export default function PopularMovies({ movies, onClick }) {
   const { t } = useTranslation();

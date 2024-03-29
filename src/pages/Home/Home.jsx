@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import getApi from 'services/fetchApi';
-import PopularMovies from 'components/TrendingMoviesList/TrendingMoviesList';
+import PopularMovies from 'components/PopularMovies/PopularMovies';
 import Loader from 'components/Loader/Loader';
 import Error from 'components/Error/Error';
 import { Title } from './Home.styled';
