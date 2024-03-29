@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import getApi from 'services/fetchApi';
-import TrendingMoviesList from 'components/TrendingMoviesList/TrendingMoviesList';
+import PopularMovies from 'components/TrendingMoviesList/TrendingMoviesList';
 import Loader from 'components/Loader/Loader';
 import Error from 'components/Error/Error';
 import { Title } from './Home.styled';
@@ -69,7 +69,7 @@ function Home() {
         {error && <Error />}
 
         <Title>{t('trendingToday')}</Title>
-        <TrendingMoviesList movies={movies} onClick={onLoadMoreButtonClick} />
+        <PopularMovies movies={movies} onClick={onLoadMoreButtonClick} />
       </main>
       <Footer />
     </>

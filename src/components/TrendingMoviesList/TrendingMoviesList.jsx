@@ -14,7 +14,7 @@ import {
   Button,
 } from './TrendingMoviesList.styled';
 
-export default function TrendingMoviesList({ movies, onClick }) {
+export default function PopularMovies({ movies, onClick }) {
   const { t } = useTranslation();
   const location = useLocation();
   const baseUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
@@ -49,7 +49,7 @@ export default function TrendingMoviesList({ movies, onClick }) {
   );
 }
 
-TrendingMoviesList.propTypes = {
+PopularMovies.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
