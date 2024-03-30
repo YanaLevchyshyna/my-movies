@@ -68,7 +68,7 @@ function Home() {
 
         {error && <Error />}
 
-        <Title>{t('trendingToday')}</Title>
+        <Title>{t('popularMovies')}</Title>
         <PopularMovies movies={movies} onClick={onLoadMoreButtonClick} />
       </main>
       <Footer />
