@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 import CircularRating from 'components/CircularProgressbar/CircularProgressbar';
+
 import {
   Section,
   Container,
