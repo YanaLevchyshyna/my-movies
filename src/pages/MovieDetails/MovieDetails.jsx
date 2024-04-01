@@ -184,9 +184,9 @@ function MovieDetails() {
                     <OverviewTitle>{t('movieDetails.overview')}</OverviewTitle>
                     <MovieOverview>{overview}</MovieOverview>
                   </MovieDetailsContainerDescription>
-                  <div>
+                  {/* <div>
                     <p>{t('playTrailer')}</p>
-                  </div>
+                  </div> */}
                 </MovieDetailsContainer>
               </MovieDetailsSection>
             </div>
