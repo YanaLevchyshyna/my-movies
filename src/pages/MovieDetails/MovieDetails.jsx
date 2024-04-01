@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import getApi from 'services/fetchApi';
+import Modal from 'components/Modal/Modal';
 import Loader from 'components/Loader/Loader';
 import Error from 'components/Error/Error';
 import {
@@ -46,6 +47,7 @@ function MovieDetails() {
   const currentLng = i18n.language;
 
   const [movie, setMovie] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -60,6 +62,10 @@ function MovieDetails() {
   const baseUrlBiggerImg = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2';
   const backdropImgUrl =
     'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/';
+
+  const toggleModal = () => {
+    setShowModal(prevState => !prevState);
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -184,9 +190,10 @@ function MovieDetails() {
                     <OverviewTitle>{t('movieDetails.overview')}</OverviewTitle>
                     <MovieOverview>{overview}</MovieOverview>
                   </MovieDetailsContainerDescription>
-                  {/* <div>
-                    <p>{t('playTrailer')}</p>
-                  </div> */}
+                  <div>
+                    <Link onClick={toggleModal}>{t('playTrailer')}</Link>
+                  </div>
+                  {showModal && <Modal onClose={toggleModal} />}
                 </MovieDetailsContainer>
               </MovieDetailsSection>
             </div>
