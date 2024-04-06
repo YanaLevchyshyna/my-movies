@@ -115,6 +115,22 @@ async function fetchSearchMovie(query, lng) {
   }
 }
 
+async function fetchMovieVideos(movieId, lng) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/videos?language=${lng}`,
+      options
+    );
+    // console.log('reviews', response);
+
+    const data = await response.json();
+    // console.log('data reviews', data);
+    return data;
+  } catch (error) {
+    console.log('ERROR', error);
+  }
+}
+
 const getApi = () => {
   return {
     fetchTrendingMovies,
@@ -123,6 +139,7 @@ const getApi = () => {
     fetchMovieReviews,
     fetchSearchMovie,
     fetchPopularMovies,
+    fetchMovieVideos,
   };
 };
 
