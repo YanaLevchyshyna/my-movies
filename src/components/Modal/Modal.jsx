@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+import ReactPlayer from 'react-player';
+
 import { ModalBackdrop, ModalContetnt } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -28,7 +30,9 @@ export default function Modal({ onClose }) {
   };
   return createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
-      <ModalContetnt></ModalContetnt>
+      <ModalContetnt>
+        <ReactPlayer url="https://www.youtube.com/watch?v=Y0ZsLudtfjI" />
+      </ModalContetnt>
     </ModalBackdrop>,
     modalRoot
   );

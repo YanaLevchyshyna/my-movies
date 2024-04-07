@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -190,9 +190,9 @@ function MovieDetails() {
                     <OverviewTitle>{t('movieDetails.overview')}</OverviewTitle>
                     <MovieOverview>{overview}</MovieOverview>
                   </MovieDetailsContainerDescription>
-                  {/* <div>
+                  <div>
                     <Link onClick={toggleModal}>{t('playTrailer')}</Link>
-                  </div> */}
+                  </div>
                   {showModal && <Modal onClose={toggleModal} />}
                 </MovieDetailsContainer>
               </MovieDetailsSection>
