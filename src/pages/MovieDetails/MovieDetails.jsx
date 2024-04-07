@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { BsPlayCircle } from 'react-icons/bs';
 
 import getApi from 'services/fetchApi';
 import Modal from 'components/Modal/Modal';
@@ -183,6 +184,13 @@ function MovieDetails() {
                       </RuntimeTitle>
                       <Runtime>{formattedTime}</Runtime>
                     </RuntimeWrapper>
+                    <div>
+                      {t('playTrailer')}&nbsp;
+                      <Link onClick={toggleModal}>
+                        <BsPlayCircle />
+                      </Link>
+                    </div>
+                    {showModal && <Modal onClose={toggleModal} />}
                     <CircularRatingWrapper>
                       <CircularRating rating={vote_average} />
                     </CircularRatingWrapper>
@@ -190,10 +198,6 @@ function MovieDetails() {
                     <OverviewTitle>{t('movieDetails.overview')}</OverviewTitle>
                     <MovieOverview>{overview}</MovieOverview>
                   </MovieDetailsContainerDescription>
-                  <div>
-                    <Link onClick={toggleModal}>{t('playTrailer')}</Link>
-                  </div>
-                  {showModal && <Modal onClose={toggleModal} />}
                 </MovieDetailsContainer>
               </MovieDetailsSection>
             </div>

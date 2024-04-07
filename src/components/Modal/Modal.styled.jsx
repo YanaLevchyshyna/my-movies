@@ -17,3 +17,26 @@ export const ModalContetnt = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
+export const CloseButton = styled.button`
+  display: flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 24px;
+  background-color: ${props => props.theme.colors.borderColor};
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: ${props => props.theme.radius.round};
+  box-shadow: ${props => props.theme.shadows.boxShadowCard};
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  cursor: pointer;
+
+  &:hover {
+    color: #ffffff;
+    background-color: #403d43;
+  }
+`;

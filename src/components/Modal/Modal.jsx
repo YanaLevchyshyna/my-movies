@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { AiOutlineClose } from 'react-icons/ai';
 import PropTypes from 'prop-types';
-import ReactPlayer from 'react-player';
 
-import { ModalBackdrop, ModalContetnt } from './Modal.styled';
+import { ModalBackdrop, ModalContetnt, CloseButton } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -31,7 +31,19 @@ export default function Modal({ onClose }) {
   return createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
       <ModalContetnt>
-        <ReactPlayer url="https://www.youtube.com/watch?v=Y0ZsLudtfjI" />
+        <CloseButton onClick={onClose}>
+          <AiOutlineClose />
+        </CloseButton>
+        <div>
+          <iframe
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/Y0ZsLudtfjI`}
+            title="YouTube video player"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </div>
       </ModalContetnt>
     </ModalBackdrop>,
     modalRoot
