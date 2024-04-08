@@ -1,5 +1,10 @@
 import styled from '@emotion/styled';
 
+export const ErrorWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const ErrorEl = styled.p`
   margin: 0 auto;
   margin-top: 40px;

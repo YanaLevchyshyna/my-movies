@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 
 import { ModalBackdrop, ModalContetnt, CloseButton } from './Modal.styled';
 import getApi from 'services/fetchApi';
-import Loader from 'components/Loader/Loader';
 import Error from 'components/Error/Error';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -19,7 +18,6 @@ const movieIdApi = getApi();
 export default function Modal({ onClose }) {
   const [videos, setVideos] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
   const { t } = useTranslation();
 
   console.log('videos', videos);
@@ -49,7 +47,7 @@ export default function Modal({ onClose }) {
     const fetchDataMovieVideo = async () => {
       try {
         const { results } = await movieIdApi.fetchMovieVideos(id);
-        console.log('VIDEOS ==> 222', results);
+        // console.log('VIDEOS ==> 222', results);
 
         if (results.length === 0) {
           toast.error(t('checkTrailers'), {
@@ -58,7 +56,7 @@ export default function Modal({ onClose }) {
           return;
         }
         const trailerVideo = results.filter(video => video.type === 'Trailer');
-        console.log('trailerVideo 333', trailerVideo);
+        // console.log('trailerVideo 333', trailerVideo);
         setVideos(trailerVideo);
       } catch (error) {
         console.error('ERROR', error);
@@ -67,7 +65,7 @@ export default function Modal({ onClose }) {
       }
     };
     fetchDataMovieVideo();
-  }, [id]);
+  }, [id, t]);
 
   const handleBackdropClick = e => {
     if (e.currentTarget === e.target) {
@@ -81,8 +79,7 @@ export default function Modal({ onClose }) {
         <CloseButton onClick={onClose}>
           <AiOutlineClose />
         </CloseButton>
-
-        {videos && videos.length > 0 ? (
+        {!loading && videos && videos.length > 0 ? (
           <div>
             <iframe
               width="560"
@@ -96,7 +93,7 @@ export default function Modal({ onClose }) {
             ></iframe>
           </div>
         ) : (
-          <p>noTrailer</p>
+          <Error />
         )}
       </ModalContetnt>
     </ModalBackdrop>,
