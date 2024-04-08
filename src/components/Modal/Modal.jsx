@@ -23,9 +23,10 @@ export default function Modal({ onClose }) {
   const { t } = useTranslation();
 
   console.log('videos', videos);
+  // console.log('videos[0]', videos[0].key);
 
   const { id } = useParams();
-  console.log('id', id);
+  // console.log('id', id);
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -48,7 +49,7 @@ export default function Modal({ onClose }) {
     const fetchDataMovieVideo = async () => {
       try {
         const { results } = await movieIdApi.fetchMovieVideos(id);
-        console.log('VIDEOS', results);
+        console.log('VIDEOS ==> 222', results);
 
         if (results.length === 0) {
           toast.error(t('checkTrailers'), {
@@ -56,10 +57,11 @@ export default function Modal({ onClose }) {
           });
           return;
         }
-
-        setVideos(results);
+        const trailerVideo = results.filter(video => video.type === 'Trailer');
+        console.log('trailerVideo 333', trailerVideo);
+        setVideos(trailerVideo);
       } catch (error) {
-        console.error(error);
+        console.error('ERROR', error);
       } finally {
         setLoading(false);
       }
@@ -79,16 +81,23 @@ export default function Modal({ onClose }) {
         <CloseButton onClick={onClose}>
           <AiOutlineClose />
         </CloseButton>
-        <div>
-          <iframe
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/s_76M4c4LTo`}
-            title="YouTube video player"
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
-        </div>
+
+        {videos && videos.length > 0 ? (
+          <div>
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${
+                videos && videos.length > 0 ? videos[0].key : ''
+              }`}
+              title="YouTube video player"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </div>
+        ) : (
+          <p>noTrailer</p>
+        )}
       </ModalContetnt>
     </ModalBackdrop>,
     modalRoot

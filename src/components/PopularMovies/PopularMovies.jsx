@@ -20,6 +20,7 @@ export default function PopularMovies({ movies, onClick }) {
   const location = useLocation();
   const baseUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
   const baseUrlBiggerImg = 'https://image.tmdb.org/t/p/w440_and_h660_face';
+
   return (
     <Section>
       <Container>

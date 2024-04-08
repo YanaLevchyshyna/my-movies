@@ -124,7 +124,7 @@ async function fetchMovieVideos(movieId) {
     // console.log('reviews', response);
 
     const data = await response.json();
-    console.log('data videos', data);
+    console.log('data videos 111', data);
     return data;
   } catch (error) {
     console.log('ERROR', error);
