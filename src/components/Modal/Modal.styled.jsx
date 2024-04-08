@@ -15,10 +15,15 @@ export const ModalContetnt = styled.div`
   width: auto;
   top: 50%;
   left: 50%;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
   transform: translate(-50%, -50%);
 `;
 
 export const CloseButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   width: 24px;
   height: 24px;
@@ -26,6 +31,7 @@ export const CloseButton = styled.button`
   justify-content: center;
   padding: 0;
   margin-bottom: 24px;
+  color: #fff;
   background-color: ${props => props.theme.colors.borderColor};
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: ${props => props.theme.radius.round};
@@ -36,7 +42,6 @@ export const CloseButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #ffffff;
-    background-color: #403d43;
+    background-color: ${props => props.theme.colors.accent};
   }
 `;

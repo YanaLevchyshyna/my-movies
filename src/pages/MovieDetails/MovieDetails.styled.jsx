@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import { BsPlayCircle } from 'react-icons/bs';
 
 export const Container = styled.div`
   max-width: 1440px;
@@ -202,6 +203,41 @@ export const Runtime = styled.p`
   }
   @media screen and (min-width: 1400px) {
     font-size: ${props => props.theme.fontSizes.l};
+  }
+`;
+
+export const PlayerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+`;
+
+export const PlayTrailerTitle = styled.h3`
+  font-size: ${props => props.theme.fontSizes.xs};
+  color: ${props => props.theme.colors.textColor};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: ${props => props.theme.fontSizes.l};
+  }
+`;
+
+export const PlayTrailerLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+`;
+
+export const BsPlayCircleSvg = styled(BsPlayCircle)`
+  color: ${props => props.theme.colors.textColor};
+  width: 28px;
+  height: 28px;
+
+  &:hover {
+    color: ${props => props.theme.colors.accent};
   }
 `;
 
