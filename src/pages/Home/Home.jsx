@@ -23,9 +23,6 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  console.log('currentPage', currentPage);
-  console.log('totalPages', totalPages);
-
   useEffect(() => {
     setLoading(true);
 

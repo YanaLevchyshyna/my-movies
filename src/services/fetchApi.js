@@ -13,14 +13,14 @@ async function fetchPopularMovies(lng, page) {
       `https://api.themoviedb.org/3/movie/popular?language=${lng}&page=${page}`,
       options
     );
-    console.log('response fetch', response);
+    // console.log('response fetch', response);
 
     if (!response.ok) {
       return Promise.reject(new Error(`Sorry, something went wrong...`));
     }
 
     const data = await response.json();
-    console.log('data POPULAR', data);
+    // console.log('data POPULAR', data);
     return data;
   } catch (error) {
     console.error(error);
@@ -115,21 +115,22 @@ async function fetchSearchMovie(query, lng) {
   }
 }
 
-async function fetchMovieVideos(movieId, lng) {
+async function fetchMovieVideos(movieId) {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/videos?language=${lng}`,
+      `https://api.themoviedb.org/3/movie/${movieId}/videos`,
       options
     );
-    console.log('reviews', response);
+    // console.log('reviews', response);
 
     const data = await response.json();
-    console.log('data reviews', data);
+    console.log('data videos', data);
     return data;
   } catch (error) {
     console.log('ERROR', error);
   }
 }
+// fetchMovieVideos('634492', 'en-US');
 
 const getApi = () => {
   return {

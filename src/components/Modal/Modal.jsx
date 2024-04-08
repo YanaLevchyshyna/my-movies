@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 
 import { ModalBackdrop, ModalContetnt, CloseButton } from './Modal.styled';
@@ -12,15 +14,18 @@ import Error from 'components/Error/Error';
 
 const modalRoot = document.querySelector('#modal-root');
 
+const movieIdApi = getApi();
+
 export default function Modal({ onClose }) {
-  const [videos, setVideos] = useState;
+  const [videos, setVideos] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const { t } = useTranslation();
 
-  const { t, i18n } = useTranslation();
-  const currentLanguage = i18n.language;
+  console.log('videos', videos);
 
   const { id } = useParams();
+  console.log('id', id);
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -38,32 +43,36 @@ export default function Modal({ onClose }) {
   }, [onClose]);
 
   useEffect(() => {
-    const fetchDataMovieDetails = async () => {
-      try {
-        await getApi.fetchMovieId(id, currentLanguage).then(response => {
-          // console.log('response ==>', response);
+    setLoading(true);
 
-          if (response.success === false) {
-            setError(
-              new Error('The resource you requested could not be found.')
-            );
-          }
-          setVideos(response);
-        });
+    const fetchDataMovieVideo = async () => {
+      try {
+        const { results } = await movieIdApi.fetchMovieVideos(id);
+        console.log('VIDEOS', results);
+
+        if (results.length === 0) {
+          toast.error(t('Sorry, something went wrong... Please try again!'), {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          return;
+        }
+
+        setVideos(results);
       } catch (error) {
-        setError(new Error('The resource you requested could not be found.'));
+        console.error(error);
       } finally {
         setLoading(false);
       }
     };
-    fetchDataMovieDetails();
-  }, [currentLanguage, id]);
+    fetchDataMovieVideo();
+  }, [id]);
 
   const handleBackdropClick = e => {
     if (e.currentTarget === e.target) {
       onClose();
     }
   };
+
   return createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
       <ModalContetnt>
@@ -74,7 +83,7 @@ export default function Modal({ onClose }) {
           <iframe
             width="560"
             height="315"
-            src={`https://www.youtube.com/embed/Y0ZsLudtfjI`}
+            src={`https://www.youtube.com/embed/s_76M4c4LTo`}
             title="YouTube video player"
             frameBorder="0"
             allowFullScreen
