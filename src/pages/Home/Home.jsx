@@ -36,7 +36,7 @@ function Home() {
         // console.log('total__Pages', total_pages);
 
         if (results.length === 0) {
-          toast.error(t('Sorry, something went wrong... Please try again!'), {
+          toast.error(t('toastError'), {
             position: toast.POSITION.TOP_CENTER,
           });
           return;

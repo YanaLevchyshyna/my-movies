@@ -51,7 +51,7 @@ export default function Modal({ onClose }) {
         console.log('VIDEOS', results);
 
         if (results.length === 0) {
-          toast.error(t('Sorry, something went wrong... Please try again!'), {
+          toast.error(t('checkTrailers'), {
             position: toast.POSITION.TOP_CENTER,
           });
           return;

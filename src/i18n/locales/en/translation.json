@@ -7,6 +7,8 @@
   "searchMovie": "Let's find your favorite movie",
   "playTrailer": "Play Trailer:",
   "loadMore": "Load more",
+  "checkTrailers": "Sorry, but currently there is no trailer available for this movie. Please try again later",
+  "toastError": "Sorry, something went wrong... Please try again!",
   "movieDetails": {
     "backToMovies": "Back to movies",
     "overview": "Overview",
