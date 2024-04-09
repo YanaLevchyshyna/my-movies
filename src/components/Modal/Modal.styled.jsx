@@ -8,6 +8,7 @@ export const ModalBackdrop = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(12px);
+  z-index: 1000;
 `;
 
 export const ModalContent = styled.div`
