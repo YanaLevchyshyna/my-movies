@@ -19,6 +19,11 @@ export const ModalContent = styled.div`
   padding: 30px;
   background-color: rgba(0, 0, 0, 0.7);
   transform: translate(-50%, -50%);
+
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1400px) {
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -44,5 +49,20 @@ export const CloseButton = styled.button`
 
   &:hover {
     background-color: ${props => props.theme.colors.accent};
+  }
+`;
+
+export const IframeEl = styled.iframe`
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+  min-height: 238px;
+  @media screen and (min-width: 768px) {
+    width: 490px;
+    height: 300px;
+  }
+  @media screen and (min-width: 1400px) {
+    width: 1178px;
+    height: 662px;
   }
 `;

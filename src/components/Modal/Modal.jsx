@@ -7,7 +7,12 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 
-import { ModalBackdrop, ModalContent, CloseButton } from './Modal.styled';
+import {
+  ModalBackdrop,
+  ModalContent,
+  CloseButton,
+  IframeEl,
+} from './Modal.styled';
 import getApi from 'services/fetchApi';
 import Loader from 'components/Loader/Loader';
 
@@ -85,16 +90,14 @@ export default function Modal({ onClose }) {
           <>
             {videos && videos.length && (
               <div>
-                <iframe
-                  width="1178"
-                  height="662"
+                <IframeEl
                   src={`https://www.youtube.com/embed/${
                     videos && videos.length > 0 ? videos[0].key : ''
                   }`}
                   title="YouTube video player"
                   frameBorder="0"
                   allowFullScreen
-                ></iframe>
+                ></IframeEl>
               </div>
             )}
           </>
