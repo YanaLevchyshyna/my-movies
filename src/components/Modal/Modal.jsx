@@ -7,9 +7,9 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 
-import { ModalBackdrop, ModalContetnt, CloseButton } from './Modal.styled';
+import { ModalBackdrop, ModalContent, CloseButton } from './Modal.styled';
 import getApi from 'services/fetchApi';
-import Error from 'components/Error/Error';
+import Loader from 'components/Loader/Loader';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -75,27 +75,31 @@ export default function Modal({ onClose }) {
 
   return createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
-      <ModalContetnt>
+      <ModalContent>
         <CloseButton onClick={onClose}>
           <AiOutlineClose />
         </CloseButton>
-        {!loading && videos && videos.length > 0 ? (
-          <div>
-            <iframe
-              width="560"
-              height="315"
-              src={`https://www.youtube.com/embed/${
-                videos && videos.length > 0 ? videos[0].key : ''
-              }`}
-              title="YouTube video player"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-          </div>
+        {loading ? (
+          <Loader />
         ) : (
-          <Error />
+          <>
+            {videos && videos.length && (
+              <div>
+                <iframe
+                  width="1178"
+                  height="662"
+                  src={`https://www.youtube.com/embed/${
+                    videos && videos.length > 0 ? videos[0].key : ''
+                  }`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            )}
+          </>
         )}
-      </ModalContetnt>
+      </ModalContent>
     </ModalBackdrop>,
     modalRoot
   );
