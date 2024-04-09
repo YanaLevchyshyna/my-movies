@@ -55,7 +55,9 @@ function Home() {
   }, [language, t, currentPage]);
 
   const onLoadMoreButtonClick = () => {
-    setCurrentPage(prevPage => prevPage + 1);
+    if (currentPage < totalPages) {
+      setCurrentPage(prevPage => prevPage + 1);
+    }
   };
 
   return (

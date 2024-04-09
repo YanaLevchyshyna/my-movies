@@ -15,7 +15,7 @@ import {
   Button,
 } from './PopularMovies.styled';
 
-export default function PopularMovies({ movies, onClick }) {
+export default function PopularMovies({ movies, onClick, showLoadMoreButton }) {
   const { t } = useTranslation();
   const location = useLocation();
   const baseUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
@@ -43,6 +43,7 @@ export default function PopularMovies({ movies, onClick }) {
             </MovieItem>
           ))}
         </MoviesList>
+
         <Button type="button" onClick={onClick}>
           {t('loadMore')}
         </Button>
