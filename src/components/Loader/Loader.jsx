@@ -8,7 +8,7 @@ function Loader() {
       <BeatLoader
         color="#032541"
         size={20}
-        cssOverride={{ position: 'absolute', top: '25%', left: '45%' }}
+        cssOverride={{ position: 'absolute', top: '50%', left: '50%' }}
       />
     </LoaderBackdrop>
   );

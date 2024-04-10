@@ -21,8 +21,12 @@ export const ModalContent = styled.div`
   transform: translate(-50%, -50%);
 
   @media screen and (min-width: 768px) {
+    width: 490px;
+    height: 300px;
   }
   @media screen and (min-width: 1400px) {
+    width: 1178px;
+    height: 662px;
   }
 `;
 
