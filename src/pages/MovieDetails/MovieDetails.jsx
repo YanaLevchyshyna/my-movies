@@ -197,7 +197,7 @@ function MovieDetails() {
                     <CircularRatingWrapper>
                       <CircularRating rating={vote_average} />
                     </CircularRatingWrapper>
-                    <Tagline>{tagline}</Tagline>
+                    {tagline && <Tagline>{tagline}</Tagline>}
                     <OverviewTitle>{t('movieDetails.overview')}</OverviewTitle>
                     <MovieOverview>{overview}</MovieOverview>
                   </MovieDetailsContainerDescription>
