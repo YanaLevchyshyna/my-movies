@@ -3,7 +3,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import PropTypes from 'prop-types';
 
 const formatRating = rating => {
-  const formattedRating = Math.round(rating * 10); // Округлюємо до одного знаку після коми
+  const formattedRating = Math.round(rating * 10);
 
   return `${formattedRating}`;
 };
