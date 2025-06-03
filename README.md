@@ -23,10 +23,6 @@ The main page displays trending movies, while a search feature allows users to l
 - **React Router DOM** (v6)
 - **@emotion/react**, **@emotion/styled**
 
-### State & Forms
-- `React Hook Form`
-- `React Recipes`
-
 ### Internationalization
 - `i18next`
 - `react-i18next`
