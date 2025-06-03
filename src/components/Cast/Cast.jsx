@@ -21,7 +21,6 @@ const movieIdApi = getApi();
 export default function Cast() {
   const { t, i18n } = useTranslation();
   const language = i18n.language;
-  // console.log('currentLng', language);
 
   const [cast, setCast] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -43,7 +42,6 @@ export default function Cast() {
           return;
         }
         setCast(cast);
-        // console.log('CAST', cast);
       } catch (error) {
         console.error(error);
       } finally {
