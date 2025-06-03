@@ -8,14 +8,12 @@ import { FormEl, InputEl, Button, BsSearchSVG } from './SearchBar.styled';
 export default function SearchBar({ onSubmit }) {
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Відповідає за оновлення стану
   const handleChange = e => {
     const { value } = e.currentTarget;
 
     setSearchQuery(value.toLowerCase());
   };
 
-  //   Викликається під час відправлення форми
   const handleSubmit = e => {
     e.preventDefault();
 
