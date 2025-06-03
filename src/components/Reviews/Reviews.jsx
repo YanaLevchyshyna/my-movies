@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-// import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import getApi from 'services/fetchApi';
@@ -36,15 +35,8 @@ export default function Reviews() {
           id,
           currentLanguage
         );
-
-        // if (results.length === 0) {
-        //   toast.info(t('movieDetails.noReviews'), {
-        //     position: toast.POSITION.TOP_CENTER,
-        //   });
-        //   return;
-        // }
         setReviews(results);
-        // console.log('Reviews', results);
+
       } catch (error) {
         console.error(error);
       } finally {
