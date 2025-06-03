@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-// import ReadMoreReact from 'read-more-react';
 
 import SearchMoviesItem from 'components/SearchMoviesItem/SearchMoviesItem';
 
